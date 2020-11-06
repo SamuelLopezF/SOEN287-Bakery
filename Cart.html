@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang = "en">
+    <head>
+        <title>Menu</title>
+        <meta charset = "utf-8"/>
+        <link type = "text/css" rel = "stylesheet" href = "Styles/template.css"/>
+        <link type = "text/css" rel = "stylesheet" href = "Styles/menu items.css"/>
+    </head>
+    <body>
+        <header>
+            <nav>
+                <table>
+                    <tr>
+                        <th class="logo"><a href="home.html"><img width="100" src="Styles/BakeryLogo.png" alt="Dulceria China logo"></a></th>
+                        <th><a href = "home.html"> Home </a></th>
+                        <th><a href = "menu.html"> Menu </a></th>
+                        <th><a href = "order.html"> Order </a></th>
+                        <th><a href = "about_us.html"> About Us </a></th>
+                        <th><a href = "contact_us.html"> Contact Us </a></th>
+                        <th><a href = "account.html"> Account </a></th>
+                        <!-- Cart icon + number of items -->
+                        <th class="cart" id='cartIconTopRight'><a href="Cart.html"><img src="Styles/Cart.png" alt="Cart.html" width="75px" height="75px"><span class="qty" id= 'cartIconTopRightQuantity'>0</span></a></th>
+                    </tr>
+                </table>
+            </nav>
+        </header>
+  <div class="tableContainer">
+    <table class="tableCart">
+      <div class="headerContainer">
+        <thead class="TableHeader">
+          <th class="Header1">Item Name</th>
+          <th class="Header2">Price</th>
+          <th class="Header3">Quantity</th>
+        </thead>
+      </div>
+      <div class="tableBodyContainer">
+        <tbody class="tableBody">
+        </tbody>
+      </div>
+    </table>
+  </div>
+
+  <script type="module" src="Cart.js"></script>
+</body>
+</html>
