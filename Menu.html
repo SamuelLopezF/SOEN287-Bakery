@@ -1,0 +1,610 @@
+<!--
+	Last Edited By: Sobhan
+	Edit Date: 07-Nov-2020
+	Edit Number: 0
+	Edit Details:
+		To help keep track of the different versions, I'm adding this to the top of every
+		file. Please update this info whenever you want to change anything. This makes it easier to
+		keep track of changes/the latest version.
+		Thank you!
+
+        Changed format from using dl to using tables.
+        Made the pictures smaller, so they fit nicely when there are 3 in a row.
+        Created new class "small_brush" that has a thinner/nicer border for these
+-->
+
+
+
+<!DOCTYPE html>
+<html lang = "en">
+    <head>
+        <title>Menu</title>
+        <meta charset = "utf-8"/>
+        <link type = "text/css" rel = "stylesheet" href = "Styles/template.css"/>
+        <style type = "text/css" rel = "stylesheet">
+
+        </style>
+    </head>
+    <body>
+        <header>
+            <nav>
+                <table>
+                    <tr>
+                        <th> <img width="100" src="Styles/BakeryLogo.png" alt="Dulceria China logo" class = "logo"/> </th>
+                        <th><a href = "index.html"> Home </a></th>
+                        <th><a href = "menu.html"> Menu </a></th>
+                        <th><a href = "order.html"> Order </a></th>
+                        <th><a href = "about_us.html"> About Us </a></th>
+                        <th><a href = "contact_us.html"> Contact Us </a></th>
+                        <th><a href = "account.html"> Account </a></th>
+                        
+                        <th class="cart" id='cartIconTopRight'><a href="Cart.html"><span class="qty" id= 'cartIconTopRightQuantity'>0</span><img src="Styles/Cart.png" alt="Cart.html" width="40px" height="40px"/></a></th>
+                        
+                    </tr>
+                </table>
+            </nav>
+        </header>
+
+        <h1>Menu</h1>
+
+        <div class="menu">
+            <table>
+                <tr>
+                    <td  class = "menuItem">
+                        <div>
+                            <figure>
+                                <h4> Almond Cookies </h4>
+                                <img src="Styles/Almond cookies.jpg" alt="Almond cookies.jpg" 
+                                    height="210px" width="270px" class = "small_brush">
+                                <!-- Buttons -->  
+                                <table class = "menu_button">
+                                    <tr>
+                                        <td><label>Pieces (#)</label></td>
+                                        <td><label>Toal Price ($)</label></td>   
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <input type = "text" placeholder = "" value = "" id = "piece0"/>
+                                        </td>
+                                        <td>
+                                            <input type = "text" placeholder = "" value = "" id = "price0"/>
+                                        </td>
+                                        
+                                    </tr>
+                                    <tr>
+                                        <td colspan = "2">
+                                            <button type = "add" class = "add_btn"
+                                                onmouseover = "this.style.backgroundColor = '#a72429'"
+                                                onmouseout = "this.style.backgroundColor = '#8d191c';">Add to Cart</button>
+                                        </td>
+                                    </tr>
+                                </table>  
+                                <figcaption>Contains: Wheat flour, eggs, lard, sugar, almonds</figcaption>
+                                
+                            </figure>
+                        </div>
+                    </td>
+
+                    <td  class = "menuItem">
+                        <div>
+                            <figure>
+                                <h4> Cheese Cake </h4>
+                                <img src="Styles/Cheese cake.jpg" alt="Cheese cake.jpg" 
+                                    height="210px" width="270px" class = "small_brush">
+                                <!-- Buttons -->
+                                <table class = "menu_button">
+                                    <tr>
+                                        <td><label>Pieces (#)</label></td>
+                                        <td><label>Toal Price ($)</label></td>   
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <input type = "text" placeholder = "" value = "" id = "piece1"/>
+                                        </td>
+                                        <td>
+                                            <input type = "text" placeholder = "" value = "" id = "price1"/>
+                                        </td>
+                                        
+                                    </tr>
+                                    <tr>
+                                        <td colspan = "2">
+                                            <button type = "add" class = "add_btn"
+                                                onmouseover = "this.style.backgroundColor = '#a72429'"
+                                                onmouseout = "this.style.backgroundColor = '#8d191c';">Add to Cart</button>
+                                        </td>
+                                    </tr>
+                                </table>
+                                <figcaption>Contains: Wheat flour, eggs, milk, cream cheese, margarine, cornstarch</figcaption>
+                            </figure>
+                        </div>
+                    </td>
+
+                    <td  class = "menuItem">
+                        <div>
+                            <figure>
+                                <h4> Chicken Biscuit </h4>
+                                <img src="Styles/Chk bisc2.jpg" alt="Chicken Biscuit" 
+                                    height="210px" width="270px" class = "small_brush">
+                                    <!-- Buttons -->
+                                    <table class = "menu_button">
+                                        <tr>
+                                            <td><label>Pieces (#)</label></td>
+                                            <td><label>Toal Price ($)</label></td>   
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <input type = "text" placeholder = "" value = "" id = "piece2"/>
+                                            </td>
+                                            <td>
+                                                <input type = "text" placeholder = "" value = "" id = "price2"/>
+                                            </td>
+                                            
+                                        </tr>
+                                        <tr>
+                                            <td colspan = "2">
+                                                <button type = "add" class = "add_btn"
+                                                onmouseover = "this.style.backgroundColor = '#a72429'"
+                                                onmouseout = "this.style.backgroundColor = '#8d191c';">Add to Cart</button>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                <figcaption>Contains: Wheat flour, eggs, water, sugar, salt, maltose, oil, pork fat, red fermented bean curd, sesame seeds,
+                                    garlic, onion</figcaption>
+                                
+                            </figure>
+                        </div>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td  class = "menuItem">
+                        <div>
+                            <figure>
+                                <h4> Egg Tart </h4>
+                                <img src="Styles/Egg tart.jpg" alt="Egg tart.jpg" 
+                                    height="210px" width="270px" class = "small_brush">
+                                <!-- Buttons --> 
+                                <table class = "menu_button">
+                                    <tr>
+                                        <td><label>Pieces (#)</label></td>
+                                        <td><label>Toal Price ($)</label></td>   
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <input type = "text" placeholder = "" value = "" id = "piece3"/>
+                                        </td>
+                                        <td>
+                                            <input type = "text" placeholder = "" value = "" id = "price3"/>
+                                        </td>
+                                        
+                                    </tr>
+                                    <tr>
+                                        <td colspan = "2">
+                                            <button type = "add" class = "add_btn"
+                                                onmouseover = "this.style.backgroundColor = '#a72429'"
+                                                onmouseout = "this.style.backgroundColor = '#8d191c';">Add to Cart</button>
+                                        </td>
+                                    </tr>
+                                </table>   
+                                <figcaption>Contains: Wheat flour, eggs, evaporated milk, sugar, water, butter, custard power</figcaption>
+                                
+                            </figure>
+                        </div>
+                    </td>
+
+                    <td  class = "menuItem">
+                        <div>
+                            <figure>
+                                <h4> Guava Bites </h4>
+                                <img src="Styles/Guava bites.jpg" alt="Guava Bites.jpg" 
+                                    height="210px" width="270px" class = "small_brush">
+                                <!-- Buttons -->
+                                <table class = "menu_button">
+                                    <tr>
+                                        <td><label>Pieces (#)</label></td>
+                                        <td><label>Toal Price ($)</label></td>   
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <input type = "text" placeholder = "" value = "" id = "piece4"/>
+                                        </td>
+                                        <td>
+                                            <input type = "text" placeholder = "" value = "" id = "price4"/>
+                                        </td>
+                                        
+                                    </tr>
+                                    <tr>
+                                        <td colspan = "2">
+                                            <button type = "add" class = "add_btn"
+                                                onmouseover = "this.style.backgroundColor = '#a72429'"
+                                                onmouseout = "this.style.backgroundColor = '#8d191c';">Add to Cart</button>
+                                        </td>
+                                    </tr>
+                                </table>
+                                <figcaption>Contains: Wheat flour, eggs, condensed milk. powdered milk, guava paste</figcaption>
+                            </figure>
+                        </div>
+                    </td>
+
+                    <td  class = "menuItem">
+                        <div>
+                            <figure>
+                                <h4> Coconut Mochi </h4>
+                                <img src="Styles/Coconut mochi.jpg" alt="Coconut Mochi.jpg"
+                                    height="210px" width="270px" class = "small_brush">
+                                    <!-- Buttons -->
+                                    <table class = "menu_button">
+                                        <tr>
+                                            <td><label>Pieces (#)</label></td>
+                                            <td><label>Toal Price ($)</label></td>   
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <input type = "text" placeholder = "" value = "" id = "piece5"/>
+                                            </td>
+                                            <td>
+                                                <input type = "text" placeholder = "" value = "" id = "price5"/>
+                                            </td>
+                                            
+                                        </tr>
+                                        <tr>
+                                            <td colspan = "2">
+                                                <button type = "add" class = "add_btn"
+                                                onmouseover = "this.style.backgroundColor = '#a72429'"
+                                                onmouseout = "this.style.backgroundColor = '#8d191c';">Add to Cart</button>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                <figcaption>Contains: Rice flour, sugar, water, coconut, peanut</figcaption>
+                                
+                            </figure>
+                        </div>
+                    </td>
+
+                </tr>
+
+                <tr>
+                    <td  class = "menuItem">
+                        <div>
+                            <figure>
+                                <h4> Pineapple Bites </h4>
+                                <img src="Styles/Pineapple bites.jpg" alt="Pineapple Bites.jpg" 
+                                    height="210px" width="270px" class = "small_brush">
+                                <!-- Buttons -->
+                                <table class = "menu_button">
+                                    <tr>
+                                        <td><label>Pieces (#)</label></td>
+                                        <td><label>Toal Price ($)</label></td>   
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <input type = "text" placeholder = "" value = "" id = "piece6"/>
+                                        </td>
+                                        <td>
+                                            <input type = "text" placeholder = "" value = "" id = "price6"/>
+                                        </td>
+                                        
+                                    </tr>
+                                    <tr>
+                                        <td colspan = "2">
+                                            <button type = "add" class = "add_btn"
+                                                onmouseover = "this.style.backgroundColor = '#a72429'"
+                                                onmouseout = "this.style.backgroundColor = '#8d191c';">Add to Cart</button>
+                                        </td>
+                                    </tr>
+                                </table>    
+                                <figcaption>Contains: Wheat flour, eggs, condensed milk, powdered milk, pineapple</figcaption>
+                                
+                            </figure>
+                        </div>
+                    </td>
+
+                    <td  class = "menuItem">
+                        <div>
+                            <figure>
+                                <h4> Pineapple Cake </h4>
+                                <img src="Styles/Pineapple cake.jpg" alt="Pineapple Cake.jpg" 
+                                    height="210px" width="270px" class = "small_brush">
+                                <!-- Buttons -->
+                                <table class = "menu_button">
+                                    <tr>
+                                        <td><label>Pieces (#)</label></td>
+                                        <td><label>Toal Price ($)</label></td>   
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <input type = "text" placeholder = "" value = "" id = "piece7"/>
+                                        </td>
+                                        <td>
+                                            <input type = "text" placeholder = "" value = "" id = "price7"/>
+                                        </td>
+                                        
+                                    </tr>
+                                    <tr>
+                                        <td colspan = "2">
+                                            <button type = "add" class = "add_btn"
+                                                onmouseover = "this.style.backgroundColor = '#a72429'"
+                                                onmouseout = "this.style.backgroundColor = '#8d191c';">Add to Cart</button>
+                                        </td>
+                                    </tr>
+                                </table>
+                                <figcaption>Contains: Wheat flour, eggs, milk, raisins, oil, pineapple</figcaption>
+                            </figure>
+                        </div>
+                    </td>
+
+                    <td  class = "menuItem">
+                        <div>
+                            <figure>
+                                <h4> Tan Wong Su </h4>
+                                <img src="Styles/Tan Wong.jpg" alt="Tan Wong.jpg" 
+                                    height="210px" width="270px" class = "small_brush">
+                                    <!-- Buttons -->
+                                    <table class = "menu_button">
+                                        <tr>
+                                            <td><label>Pieces (#)</label></td>
+                                            <td><label>Toal Price ($)</label></td>   
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <input type = "text" placeholder = "" value = "" id = "piece8"/>
+                                            </td>
+                                            <td>
+                                                <input type = "text" placeholder = "" value = "" id = "price8"/>
+                                            </td>
+                                            
+                                        </tr>
+                                        <tr>
+                                            <td colspan = "2">
+                                                <button type = "add" class = "add_btn"
+                                                onmouseover = "this.style.backgroundColor = '#a72429'"
+                                                onmouseout = "this.style.backgroundColor = '#8d191c';">Add to Cart</button>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                <figcaption>Contains: Wheat flour, eggs, water, dough conditioner, vegetable oil, sugar, vegetable shortening,
+                                    red bean paste, salted egg yolk</figcaption>
+                                
+                            </figure>
+                        </div>
+                    </td>
+
+                </tr>
+
+                <tr>
+                    <td  class = "menuItem">
+                        <div>
+                            <figure>
+                                <h4> Tau Sa Pen </h4>
+                                <img src="Styles/Almond cookies.jpg" alt="Almond cookies.jpg" 
+                                    height="210px" width="270px" class = "small_brush">
+                                <!-- Buttons -->
+                                <table class = "menu_button">
+                                    <tr>
+                                        <td><label>Pieces (#)</label></td>
+                                        <td><label>Toal Price ($)</label></td>   
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <input type = "text" placeholder = "" value = "" id = "piece9"/>
+                                        </td>
+                                        <td>
+                                            <input type = "text" placeholder = "" value = "" id = "price9"/>
+                                        </td>
+                                        
+                                    </tr>
+                                    <tr>
+                                        <td colspan = "2">
+                                            <button type = "add" class = "add_btn"
+                                                onmouseover = "this.style.backgroundColor = '#a72429'"
+                                                onmouseout = "this.style.backgroundColor = '#8d191c';">Add to Cart</button>
+                                        </td>
+                                    </tr>
+                                </table>    
+                                <figcaption>Contains: Wheat flour, eggs, lard, sugar, almonds</figcaption>
+                                
+                            </figure>
+                        </div>
+                    </td>
+
+                </tr>
+
+                <!-- Steamed Bun Section -->
+                <tr>
+                    <td colspan = "3">
+                        <h1> Steamed Buns</h1>
+                    </td>   
+                </tr>
+
+                <tr>
+                    <td  class = "menuItem">
+                        <div>
+                            <figure>
+                                <h4> Pork Buns </h4>
+                                <img src="Styles/Pork bun2.jpg" alt="Pork Bun.jpg" 
+                                    height="210px" width="270px" class = "small_brush">
+                                <!-- Buttons -->
+                                <table class = "menu_button">
+                                    <tr>
+                                        <td><label>Pieces (#)</label></td>
+                                        <td><label>Toal Price ($)</label></td>   
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <input type = "text" placeholder = "" value = "" id = "piece10"/>
+                                        </td>
+                                        <td>
+                                            <input type = "text" placeholder = "" value = "" id = "price10"/>
+                                        </td>
+                                        
+                                    </tr>
+                                    <tr>
+                                        <td colspan = "2">
+                                            <button type = "add" class = "add_btn"
+                                                onmouseover = "this.style.backgroundColor = '#a72429'"
+                                                onmouseout = "this.style.backgroundColor = '#8d191c';">Add to Cart</button>
+                                        </td>
+                                    </tr>
+                                </table>    
+                                <figcaption>Contains: Wheat flour, water, sugar, dry yeast, baking powder, vegetable oil, salt, bbq pork</figcaption>
+                                
+                            </figure>
+                        </div>
+                    </td>
+
+                    <td  class = "menuItem">
+                        <div>
+                            <figure>
+                                <h4> Red Bean Paste </h4>
+                                <img src="Styles/RBP22.jpg" alt="RBP.2.jpg" 
+                                    height="210px" width="270px" class = "small_brush">
+                                <!-- Buttons -->
+                                <table class = "menu_button">
+                                    <tr>
+                                        <td><label>Pieces (#)</label></td>
+                                        <td><label>Toal Price ($)</label></td>   
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <input type = "text" placeholder = "" value = "" id = "piece11"/>
+                                        </td>
+                                        <td>
+                                            <input type = "text" placeholder = "" value = "" id = "price11"/>
+                                        </td>
+                                        
+                                    </tr>
+                                    <tr>
+                                        <td colspan = "2">
+                                            <button type = "add" class = "add_btn"
+                                                onmouseover = "this.style.backgroundColor = '#a72429'"
+                                                onmouseout = "this.style.backgroundColor = '#8d191c';">Add to Cart</button>
+                                        </td>
+                                    </tr>
+                                </table>
+                                <figcaption>Contains: Wheat flour, water, sugar, dry yeast, baking powder, vegetable oil, salt, red bean paste</figcaption>
+                            </figure>
+                        </div>
+                    </td>
+
+                    <td  class = "menuItem">
+                        <div>
+                            <figure>
+                                <h4> Coconut </h4>
+                                <img src="Styles/Coconut bun22.jpg" alt="Coconut.jpg" 
+                                    height="210px" width="270px" class = "small_brush">
+                                    <!-- Buttons -->
+                                    <table class = "menu_button">
+                                        <tr>
+                                            <td><label>Pieces (#)</label></td>
+                                            <td><label>Toal Price ($)</label></td>   
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <input type = "text" placeholder = "" value = "" id = "piece12"/>
+                                            </td>
+                                            <td>
+                                                <input type = "text" placeholder = "" value = "" id = "price12"/>
+                                            </td>
+                                            
+                                        </tr>
+                                        <tr>
+                                            <td colspan = "2">
+                                                <button type = "add" class = "add_btn"
+                                                onmouseover = "this.style.backgroundColor = '#a72429'"
+                                                onmouseout = "this.style.backgroundColor = '#8d191c';">Add to Cart</button>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                <figcaption>Contains: Wheat flour, water, sugar, dry yeast, baking powder, vegetable oil, salt, coconut</figcaption>
+                                
+                            </figure>
+                        </div>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td  class = "menuItem">
+                        <div>
+                            <figure>
+                                <h4> Custard </h4>
+                                <img src="Styles/Custard bun.jpg" alt="Custard bun.jpg" 
+                                    height="210px" width="270px" class = "small_brush">
+                                <!-- Buttons -->
+                                <table class = "menu_button">
+                                    <tr>
+                                        <td><label>Pieces (#)</label></td>
+                                        <td><label>Toal Price ($)</label></td>   
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <input type = "text" placeholder = "" value = "" id = "piece13"/>
+                                        </td>
+                                        <td>
+                                            <input type = "text" placeholder = "" value = "" id = "price13"/>
+                                        </td>
+                                        
+                                    </tr>
+                                    <tr>
+                                        <td colspan = "2">
+                                            <button type = "add" class = "add_btn"
+                                                onmouseover = "this.style.backgroundColor = '#a72429'"
+                                                onmouseout = "this.style.backgroundColor = '#8d191c';">Add to Cart</button>
+                                        </td>
+                                    </tr>
+                                </table>    
+                                <figcaption>Contains: Wheat flour, water, sugar, dry yeast, baking powder, vegetable oil, salt, custard</figcaption>
+                                
+                            </figure>
+                        </div>
+                    </td>
+
+                </tr>
+            </table>    
+        </div>
+        <footer>
+            <table>
+                <tr id = "email">
+                    <td>
+                        <img src = "Styles/email.png" alt = "Email" width = "25px" height = "25px"/>
+                    </td>
+                    <td>
+                        <a href = "mailto:dulceriachina.ec@gmail.com">dulceriachina.ec@gmail.com</a>
+                    </td>
+    
+                </tr>
+                <tr id = "telephone">
+                    <td>
+                        <img src = "Styles/phone.png" alt = "Phone" width = "25px" height = "25px"/>
+                    </td>
+                    <td>
+                        (04) 251-0363 - (593) 997-045-024
+                    </td>
+    
+                </tr>
+                <tr id = "facebook">
+                    <td>
+                        <img src = "Styles/facebook.png" alt = "Facebook" width = "25px" height = "25px"/>
+                    </td>
+                    <td>
+                        <a href = "https://www.facebook.com/dulceriachina/" target = "_blank"> facebook.com/dulceriachina</a>
+                    </td>
+    
+                </tr>
+                <tr id = "instagram">
+                    <td>
+                        <img src = "Styles/instagram.png" alt = "Instagram" width = "25px" height = "25px"/>
+                    </td>
+                    <td>
+                       <a href="https://www.instagram.com/dulceriachina/">@dulceriachina</a> 
+                    </td>
+    
+                </tr>
+            </table>
+            <p> ©2020 Dulceria China </p>
+        </footer>
+
+        <!-- script for the cart icon-->
+        <script src="JavaScript/Menu.js"></script>
+
+    </body>
+</html>

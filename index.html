@@ -1,0 +1,120 @@
+<!--
+    File Description: Website Home Page + Offers
+	Last Edited By: Sobhan
+	Edit Date: 07-Nov-2020
+	Edit Number: 0
+	Edit Details:
+		To help keep track of the different versions, I'm adding this to the top of every
+		file. Please update this info whenever you want to change anything. This makes it easier to
+		keep track of changes/the latest version.
+        Thank you!
+        
+        1) Renamed Home.html to index.html (it was gonna happen eventually)
+        2) Also updated all the respective links in other files
+        3) Added "special" and "brush" classes to the special offers and img respectively
+		
+-->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <link href="Styles/template.css" rel="stylesheet">
+</head>
+<body>
+    <table style="margin-left:35%">
+        <tr>
+            <td>
+                <img width="100" src="Styles/BakeryLogo.png" alt="Dulceria China logo"> 
+            </td>
+            <td>
+                <h1> Dulceria China</h1>
+            </td>
+        </tr>
+    </table>
+        
+    <header>
+        <nav>
+            <table>
+                <tr>
+                    <th><a href = "index.html"> Home </a></th>
+                    <th><a href = "menu.html"> Menu </a></th>
+                    <th><a href = "order.html"> Order </a></th>
+                    <th><a href = "about_us.html"> About Us </a></th>
+                    <th><a href = "contact_us.html"> Contact Us </a></th>
+                    <th><a href = "account.html"> Account </a></th>
+                    <th class="cart" id='cartIconTopRight'><a href="Cart.html"><span class="qty" id= 'cartIconTopRightQuantity'>0</span><img src="Styles/Cart.png" alt="Cart.html" width="40px" height="40px"/></a></th>
+                </tr>
+            </table>
+        </nav>
+    </header>
+    
+    <div class="row">
+        <div class="col"><h3>Welcome to Dulceria China</h3>
+            <p>
+                Feel free to check out our menu with the description of our delicious food.
+                We are exited to offer you a function of online order and delivery. 
+                Also, create an account to order your reccuring product lists in one click!
+            </p>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col special">
+            <h3>
+                <script src="JavaScript/MonthSpecial1.js">
+                </script>
+            </h3>
+            <p>
+                <script  src="JavaScript/MonthSpecial2.js"></script>
+            </p>
+            <img class = "brush" src="Styles/Special.jpg" alt="Delicious mooncake!" style="width:50%; align-self: auto;">
+        </div>
+    </div>
+</body>
+
+<footer>
+    <table>
+        <tr id = "email">
+            <td>
+                <img src = "Styles/email.png" alt = "Email" width = "25px" height = "25px"/>
+            </td>
+            <td>
+                <a href = "mailto:dulceriachina.ec@gmail.com">dulceriachina.ec@gmail.com</a>
+            </td>
+
+        </tr>
+        <tr id = "telephone">
+            <td>
+                <img src = "Styles/phone.png" alt = "Phone" width = "25px" height = "25px"/>
+            </td>
+            <td>
+                (04) 251-0363 - (593) 997-045-024
+            </td>
+
+        </tr>
+        <tr id = "facebook">
+            <td>
+                <img src = "Styles/facebook.png" alt = "Facebook" width = "25px" height = "25px"/>
+            </td>
+            <td>
+                <a href = "https://www.facebook.com/dulceriachina/" target = "_blank"> facebook.com/dulceriachina</a>
+            </td>
+
+        </tr>
+        <tr id = "instagram">
+            <td>
+                <img src = "Styles/instagram.png" alt = "Instagram" width = "25px" height = "25px"/>
+            </td>
+            <td>
+               <a href="https://www.instagram.com/dulceriachina/">@dulceriachina</a> 
+            </td>
+
+        </tr>
+    </table>
+    <p> ©2020 Dulceria China </p>
+</footer>
+</body>
+</html>
