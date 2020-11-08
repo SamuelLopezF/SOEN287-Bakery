@@ -1,2 +1,2 @@
 #ourProject
-this is our final project on github
+A website for Dulceria China. Made as a final project for Concordia's SOEN 287 course.
