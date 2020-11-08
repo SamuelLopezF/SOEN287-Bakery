@@ -1,7 +1,7 @@
 /*
 	Last Edited By: Sobhan
-	Edit Date: 07-Nov-2020
-	Edit Number: 0
+	Edit Date: 08-Nov-2020
+	Edit Number: 1
 	Edit Details:
 		To help keep track of the different versions, I'm adding this to the top of every
 		file. Please update this info whenever you want to change anything. This makes it easier to
@@ -9,6 +9,7 @@
         Thank you!
         
         Added price conversion
+	Fixed a bug in the price conversion;
 		
 */
 
@@ -41,9 +42,9 @@ function piecesToPrice(){
     if(this.value.search(/^\d/) != -1 ){
         let pieces = parseInt(this.value);
         let id = this.id;
-        let price = parseFloat(document.getElementById("price" + id.substring(id.length-1)).placeholder);
+        let price = parseFloat(document.getElementById("price" + id.substring(5)).placeholder);
         let new_price = pieces * price;
-        document.getElementById("price" + id.substring(id.length-1)).value = new_price.toFixed(2);
+        document.getElementById("price" + id.substring(5)).value = new_price.toFixed(2);
     }
         
     
