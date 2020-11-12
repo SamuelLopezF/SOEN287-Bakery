@@ -1,12 +1,9 @@
 /*
 	Last Edited By: Sobhan
-	Edit Date: 07-Nov-2020
-	Edit Number: 0
+	Edit Date: 11-Nov-2020
+	Edit Number: 1
 	Edit Details:
-		To help keep track of the different versions, I'm adding this to the top of every
-		file. Please update this info whenever you want to change anything. This makes it easier to
-		keep track of changes/the latest version.
-		Thank you!
+		CSS for Login form
 		
 */
 
@@ -246,4 +243,30 @@ input, textarea {
 
 #submit * {
     text-align: center;
+}
+
+/* Login */
+
+#login {width: 30%;
+    margin: auto;
+    background-color: #ffe1b5;}
+
+#login input {
+    width: 200px;
+    border: none;
+    border-radius: 5px;
+}
+
+#login button {
+    width: 200px;
+}
+
+#login th {
+    text-align: left;
+    font-weight: normal;
+}
+
+#login span {
+    text-decoration: underline;
+    color: blue;
 }
