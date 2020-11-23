@@ -1,16 +1,15 @@
 /*
 	Last Edited By: Sobhan
-	Edit Date: 11-Nov-2020
-	Edit Number: 1
+	Edit Date: 23-Nov-2020
+	Edit Number: 2
 	Edit Details:
-		CSS for Login form
+        Updated/Improved CSS
+        Footer positioning improved
+        Nav bar no longer has the weird gap
+        Mousing over buttons now done by CSS
+        Colours moved to variables to make changes easy
+        Nav bar is now responsive to size (needs more work overall, but I'll leave that for the very end of the project)
 		
-*/
-
-/* Important colours:
-Red: 8d191c
-Beige: debc78
-White: ffeed4
 */
 
 /* Sources:
@@ -31,61 +30,59 @@ https://www.stickpng.com/img/icons-logos-emojis/tech-companies/new-black-instagr
 
 */
 
-/* general stuff */
+:root{
+    --red: #8d191c;
+    --beige: #debc78;
+    --white: #ffeed4;
+    --light_red: #a72429;
+    --dark_red: #701417;
+    --light_beige: #ffe1b5;
+}
+
+/*=========== general stuff ===========*/
+
 body {
-    background-color: #ffeed4;
+    background-color: var(--white);
     text-align: center;
+    margin: 0;
 }
 
 p {
     font-size: 20px;
     width: 75%;
     margin-left: auto;
-    margin-right: auto;
-    
+    margin-right: auto;  
 }
 
-* {
-    font-family: "Avenir","Architects Daughter", "Permanent Marker", "Tekton", "Comic Sans MS", Verdana, Arial, sans-serif;
-}
+* {font-family: "Avenir","Architects Daughter", "Permanent Marker", "Tekton", "Comic Sans MS", Verdana, Arial, sans-serif;}
 
 h1 {font-size: 48px;}
 h1 {font-size: 40px;}
 h3 {font-size: 32px;}
 h4 {font-size: 24px;}
 
-button {
 
+/*=========== Buttons ===========*/
+button {
     padding: 5px 20px;
-    background-color: #8d191c;
-    color: #ffeed4;
+    background-color: var(--red);
+    color: var(--white);
     border-radius: 5px;
     border: none;
-
 }
 
-/* Navigation Bar */
-/*
-nav {
-    background-color: #8d191c;
-    margin-left: auto;
-    margin-right: auto;
-    width: 75%;
-    }
-*/
+button:hover {background-color: var(--light_red);}
 
-
+/*=========== Navigation Bar ===========*/
 header {
-    background-color: #8d191c;
+    background-color: var(--red);
     margin-left: auto;
     margin-right: auto;
-}
-    
+}  
 
 nav table {
     margin: auto;
     text-align: center;  
-    padding: 0.5em;
 }
 
 nav table th {
@@ -93,25 +90,18 @@ nav table th {
     vertical-align: center;
 }
 
-nav table tr th .logo {
-    margin-left: 2em;
-    margin-right: 2em;
-}
-
 nav table tr th a {
-    color: #debc78;
+    color: var(--beige);
     text-decoration: none;
-    font-size: 32px;
-    padding: 0.3em 0.75em;
-    
-}
-nav table tr th a:hover {
-    background-color: #701417;
+    font-size: 2vw;
+    padding: 0.075em 0.75em;
 }
 
+nav table tr th a:hover {background-color: var(--dark_red);}
+
 nav table tr th .logo {
-    margin-left: 2em;
-    margin-right: 2em;
+    margin-left: 2vw;
+    margin-right: 2vw;
 }
 
 nav table tr .cart img {
@@ -119,25 +109,48 @@ nav table tr .cart img {
     margin-right: 10px;
 }
 
+#cartIconTopRight img {
+    width: 2.5vw !important;
+    height: 2.5vw !important;
+}
 
+img.logo {
+    width: 5vw !important;
+    height: 5vw !important;
+}
 
-
+.current_page {background-color: var(--dark_red);}
 
 /* Footer */
 footer {
-    background-color: #8d191c;
+    background-color: var(--red);
     margin-left: auto;
     margin-right: auto;
-    /*width: 75%;*/
-    color: #debc78;
+    color: var(--beige);
 }
 
 footer * {
-    color: #debc78;
+    color: var(--beige);
+}
+
+/*========== Keeping Footer at Bottom ==========*/
+
+/* From Stack Overflow: https://stackoverflow.com/questions/643879/css-to-make-html-page-footer-stay-at-bottom-of-the-page-with-a-minimum-height-b/25218797#25218797 */
+
+html, body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    display: table;
+}
+
+footer {
+    display: table-row;
+    height: 0;
 }
 
 
-/* about us table */
+/*=========== about us table ===========*/
 
 table.about_table {
     width: 50%;
@@ -145,18 +158,18 @@ table.about_table {
 }
 
 .alt_row {
-    background-color: #ffe1b5;
+    background-color: var(--light_beige);
 }
 
 
 
-/* contact us */
+/*=========== contact us ===========*/
 
 #contact_us {width: 40%;}
 #contact_us td {width:310px;}
 
 .message {
-    background-color: #ffe1b5;
+    background-color: var(--light_beige);
     padding: 10px;  
 }
 
@@ -179,13 +192,7 @@ table.about_table {
 	width: 300px;
 	}
 
-/*
-table.contact_table th {width: 50%;}
-table.contact_table td {width: 50%;}
-*/
-
-
-/* Special Stuff */
+/*=========== Special Stuff ===========*/
 .brush {
     border: 20px solid;
     border-image: url(brush.png) 5% stretch;
@@ -197,24 +204,23 @@ table.contact_table td {width: 50%;}
 }
 
 .special {
-    background-color: #debc78;
+    background-color: var(--beige);
     width: 75%;
     margin: auto;
 }
 
 
 
-/* tables */
-table {
-    margin: auto;
-}
+/*=========== tables ===========*/
+table {margin: auto;}
 
-/* buttons */
+/*=========== buttons ===========*/
 input, textarea {
-    background-color: #debc78;
+    background-color: var(--beige);
+    resize: none;
 }
 
-/* menu */
+/*=========== menu ===========*/
 
 .menu table {
     margin: auto;
@@ -224,32 +230,28 @@ input, textarea {
 }
 
 .menu_button input {
-    background-color: #ffeed4;
+    background-color: var(--white);
     color: black;
     text-align: center;
     font-family: Helvetica, sans-serif;
 }
-.menu_button label {
-    font-weight: bold;
-}
 
+.menu_button label {font-weight: bold;}
 
 .menuItem {
-    background-color: #debc78;
+    background-color: var(--beige);
     vertical-align: top;
 }
-
-
 
 #submit * {
     text-align: center;
 }
 
-/* Login */
+/*=========== Login ===========*/
 
 #login {width: 30%;
     margin: auto;
-    background-color: #ffe1b5;}
+    background-color: var(--light_beige);}
 
 #login input {
     width: 200px;
