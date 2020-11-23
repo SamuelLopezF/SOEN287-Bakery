@@ -57,9 +57,13 @@ p {
 * {font-family: "Avenir","Architects Daughter", "Permanent Marker", "Tekton", "Comic Sans MS", Verdana, Arial, sans-serif;}
 
 h1 {font-size: 48px;}
-h1 {font-size: 40px;}
+h2 {font-size: 40px;}
 h3 {font-size: 32px;}
 h4 {font-size: 24px;}
+
+h1, h2, h3, h4 {
+    padding-top: 0.5em;
+    padding-bottom: 0em;}
 
 
 /*=========== Buttons ===========*/
@@ -209,6 +213,17 @@ table.about_table {
     margin: auto;
 }
 
+.banner {
+    width: 66%;
+    background-color: var(--beige);
+    margin: auto;
+}
+
+.not_banner {
+    width: 66%;
+    margin: auto;
+}
+
 
 
 /*=========== tables ===========*/
@@ -218,6 +233,8 @@ table {margin: auto;}
 input, textarea {
     background-color: var(--beige);
     resize: none;
+    border: none;
+    border-radius: 5px;
 }
 
 /*=========== menu ===========*/
