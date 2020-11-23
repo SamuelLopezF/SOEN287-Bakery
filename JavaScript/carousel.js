@@ -7,6 +7,7 @@
 
 const NUM_OF_PICS = 3;
 const INTERVAL = 10; //INTERVAL/10 = seconds (default 1 second)
+const WAIT = 2000; // How long to pause on each image (in ms)
 let current = 0;
 let fadeOutTimeout = 0;
 let fadeInTimeout = 0;
@@ -22,16 +23,16 @@ let prevImg = document.getElementById("prev");
 function transition(){
     clearAllTimeout();
     // Wait 5 seconds then fade current image out;
-    timeout0 = setTimeout(fadeOut,5000);
+    timeout0 = setTimeout(fadeOut,WAIT);
     // swap after fading out
     timeout1 = setTimeout(function(){
         current = (((current + 1) % NUM_OF_PICS) + NUM_OF_PICS) % NUM_OF_PICS;
         swapImage(current);
-    }, 6000);
+    }, WAIT + 1000);
     // fade in
-    timeout2 = setTimeout(fadeIn, 6000);
+    timeout2 = setTimeout(fadeIn, WAIT + 1000);
     // repeat after fading in
-    timeout3 = setTimeout(transition, 7000);
+    timeout3 = setTimeout(transition, WAIT + 2000);
 }
 
 function fadeOut(){
