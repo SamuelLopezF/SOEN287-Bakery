@@ -1,12 +1,12 @@
 //  File Description: Carousel in Home Page
 // 	Last Edited By: Sobhan
-// 	Edit Date: 22-Nov-2020
-// 	Edit Number: 1
+// 	Edit Date: 24-Nov-2020
+// 	Edit Number: 2
 // 	Edit Details:
-//      Created carousel. Read comments for more details.
+//      Updated to make everything entirely reliable on the three constants
 
 const NUM_OF_PICS = 3;
-const INTERVAL = 10; //INTERVAL/10 = seconds (default 1 second)
+const INTERVAL = 10; //INTERVAL/10 = seconds (default 1 second) it takes to fade
 const WAIT = 2000; // How long to pause on each image (in ms)
 let current = 0;
 let fadeOutTimeout = 0;
@@ -28,11 +28,11 @@ function transition(){
     timeout1 = setTimeout(function(){
         current = (((current + 1) % NUM_OF_PICS) + NUM_OF_PICS) % NUM_OF_PICS;
         swapImage(current);
-    }, WAIT + 1000);
+    }, WAIT + 100*INTERVAL);
     // fade in
-    timeout2 = setTimeout(fadeIn, WAIT + 1000);
+    timeout2 = setTimeout(fadeIn, WAIT + 100*INTERVAL);
     // repeat after fading in
-    timeout3 = setTimeout(transition, WAIT + 2000);
+    timeout3 = setTimeout(transition, WAIT + 200*INTERVAL);
 }
 
 function fadeOut(){
