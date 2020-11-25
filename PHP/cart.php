@@ -1,3 +1,14 @@
+<!--
+	Last Edited By: Bryan
+	Edit Date: 24-Nov-2020
+	Edit Number: 0
+    Details:
+        - Created the cart
+        - Buttons to edit in cart (in progress)
+        - Total calculation (in progress)
+        - Created specific ccs stylesheet 'cart.css'
+-->
+
 <?php
     include 'header.php';
 ?>
