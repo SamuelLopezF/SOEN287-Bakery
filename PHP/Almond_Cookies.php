@@ -8,13 +8,13 @@
     Last Edited By: Bryan
 	Edit Date: 
 	Edit Number: 1
-	Edit Details:
+    Edit Details:
         Changed the extension to .php
-        See (REMOVED) elements
+        See (REMOVED)/(NEW) elements
 
 -->
 
-
+<!-- (NEW) Header -->
 <?php
     include ('header.php');
 ?>
@@ -76,7 +76,7 @@
 
         <!-- <script src="../JavaScript/Menu.js"></script> -->
 
-
+<!-- Footer (NEW) -->
 <?php
     include ('footer.php');
 ?>
