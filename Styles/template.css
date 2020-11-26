@@ -1,14 +1,9 @@
 /*
 	Last Edited By: Sobhan
-	Edit Date: 23-Nov-2020
-	Edit Number: 2
+	Edit Date: 25-Nov-2020
+	Edit Number: 3
 	Edit Details:
-        Updated/Improved CSS
-        Footer positioning improved
-        Nav bar no longer has the weird gap
-        Mousing over buttons now done by CSS
-        Colours moved to variables to make changes easy
-        Nav bar is now responsive to size (needs more work overall, but I'll leave that for the very end of the project)
+        Support for Logo Link
 		
 */
 
@@ -102,6 +97,7 @@ nav table tr th a {
 }
 
 nav table tr th a:hover {background-color: var(--dark_red);}
+a.logo:hover {background-color: var(--red);}
 
 nav table tr th .logo {
     margin-left: 2vw;
