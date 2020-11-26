@@ -3,7 +3,7 @@
     // Edit Number: 1
     // Edit Date: 26-Nov-2020
     // Edit Details: Created File
-    
+
     $dataBase = "Database/Item_Info.txt";
 
     function createRow($itemID, $itemCount){
