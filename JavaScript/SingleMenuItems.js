@@ -1,10 +1,10 @@
 /*
     File Description: Client-side price conversion for single menu item pages
 	Last Edited By: Sobhan
-	Edit Date: 23-Nov-2020
-	Edit Number: 1
+	Edit Date: 26-Nov-2020
+	Edit Number: 2
 	Edit Details:
-		Created this.
+		Commented out the change in cart
 */
 
 // menu item + price
@@ -50,11 +50,11 @@ for(let i = 0 ; i < buttons.length ; i++){
             prices[i].value = "$" + (quantity*parseFloat((prices[i].placeholder).substring(1))).toFixed(2);
     });
 
-    // add quantity to cart (just visual)
-    buttons[i].addEventListener("click", function(){
-        let newQuantity = parseInt(pieces[i].value);
-        if(!isNaN(newQuantity) && newQuantity >= 0)
-            cartQuantity.innerHTML = parseInt(cartQuantity.innerHTML) + newQuantity;
-    });
+    // // add quantity to cart (just visual)
+    // buttons[i].addEventListener("click", function(){
+    //     let newQuantity = parseInt(pieces[i].value);
+    //     if(!isNaN(newQuantity) && newQuantity >= 0)
+    //         cartQuantity.innerHTML = parseInt(cartQuantity.innerHTML) + newQuantity;
+    // });
 }
 
