@@ -1,12 +1,19 @@
+<?php require_once("PHP/Cart_Cookies/Cart_Cookie.php"); ?>
+<?php require_once("PHP/Cart_Cookies/Cookie_Hash_Functions.php"); ?>
 <!--
 	Last Edited By: Sobhan
-	Edit Date: 25-Nov-2020
-	Edit Number: 3
+	Edit Date: 26-Nov-2020
+	Edit Number: 5
 	Edit Details:
-		Logo Link
-		
+		Cart
+    Cart rows
 -->
-
+<!-- PHP -->
+<?php
+    if(isset($_COOKIE["cart_cookie"]))
+        $menu = cookieToHash($_COOKIE["cart_cookie"]);
+?>  
+<!-- ========================= End of Important PHP ========================= -->
 <!DOCTYPE html>
 <html lang = "en">
     <head>
@@ -24,38 +31,50 @@
         <nav>
             <table>
                 <tr>
-                  <th> <a href = "index.html" class = "logo"><img width="100" src="Styles/BakeryLogo.png" alt="Dulceria China logo" class = "logo"/> </a></th>
-                    <th><a href = "index.html"> Home </a></th>
-                    <th><a href = "menu.html"> Menu </a></th>
-                    <th><a href = "order.html"> Order </a></th>
-                    <th><a href = "about_us.html"> About Us </a></th>
-                    <th><a href = "contact_us.html"> Contact Us </a></th>
-                    <th><a href = "account.html"> Account </a></th>
+                  <th> <a href = "index.php" class = "logo"><img width="100" src="Styles/BakeryLogo.png" alt="Dulceria China logo" class = "logo"/> </a></th>
+                    <th><a href = "index.php"> Home </a></th>
+                    <th><a href = "menu.php"> Menu </a></th>
+                    <!-- <th><a href = "order.html"> Order </a></th> -->
+                    <th><a href = "about_us.php"> About Us </a></th>
+                    <th><a href = "contact_us.php"> Contact Us </a></th>
+                    <th><a href = "account.php"> Account </a></th>
                     
-                    <th class="cart" id='cartIconTopRight'><a href="Cart.html" class = "current_page"><span class="qty" id= 'cartIconTopRightQuantity'>0</span><img src="Styles/Cart.png" alt="Cart.html" width="40px" height="40px"/></a></th>
+                    <th class="cart" id='cartIconTopRight'><a href="Cart.php" class = "current_page"><span class="qty" id= 'cartIconTopRightQuantity'><?php if(isSet($menu)) cartSize($menu); else echo("0");?></span><img src="Styles/Cart.png" alt="Cart.html" width="40px" height="40px"/></a></th>
                     
                 </tr>
             </table>
         </nav>
     </header>
     
-    <div class="tableContainer">
-      <table class="tableCart">
-        <div class="headerContainer">
-          <thead class="TableHeader">
-            <th class="Header1">Item Name</th>
-            <th class="Header2">Price</th>
-            <th class="Header3">Quantity</th>
-          </thead>
-        </div>
-        <div class="tableBodyContainer">
-          <tbody class="tableBody">
-          </tbody>
-        </div>
-      </table>
-    </div>
+    <table>
+      <tr>
+        <th>Item</th>
+        <th>Number</th>
+        <th>Cost</th>
+      </tr>
+      <?php
+        require_once("PHP/Cart_Cookies/Row_Creator.php");
+        $fail = true;
+        if(isset($_COOKIE["cart_cookie"])){
+          $menu = cookieToHash($_COOKIE["cart_cookie"]);
+          $empty = true;
+          foreach($menu as $key=>$value){
+            if($menu[$key] > 0){
+              createRow($key,$value);
+              $empty = false;
+              $fail = false;
+            }
+          }
+          if($empty){
+            print"<tr><td colspan='3'> It looks like your cart is empty. </td></tr>";
+          }
+        }
+        if($fail){
+          print"<tr><td colspan='3'> Oops. Looks like we couldn't process your order </td></tr>";
+        }
 
-  </div>
+      ?>
+    </table>
     <footer>
       <table>
           <tr id = "email">
