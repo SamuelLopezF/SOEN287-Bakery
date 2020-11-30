@@ -2,15 +2,20 @@
 <?php require_once("PHP/Cart_Cookies/Cookie_Hash_Functions.php"); ?>
 <!--
 	Last Edited By: Sobhan
-	Edit Date: 26-Nov-2020
-	Edit Number: 4
+	Edit Date: 29-Nov-2020
+	Edit Number: 6
 	Edit Details:
 		Cart
+    Cart rows
+    Allow Editing of item numbers
 -->
 <!-- PHP -->
 <?php
+    incrementCart();
+    decrementCart();
     if(isset($_COOKIE["cart_cookie"]))
         $menu = cookieToHash($_COOKIE["cart_cookie"]);
+    
 ?>  
 <!-- ========================= End of Important PHP ========================= -->
 <!DOCTYPE html>
@@ -45,23 +50,37 @@
         </nav>
     </header>
     
-    <div class="tableContainer">
-      <table class="tableCart">
-        <div class="headerContainer">
-          <thead class="TableHeader">
-            <th class="Header1">Item Name</th>
-            <th class="Header2">Price</th>
-            <th class="Header3">Quantity</th>
-          </thead>
-        </div>
-        <div class="tableBodyContainer">
-          <tbody class="tableBody">
-          </tbody>
-        </div>
-      </table>
-    </div>
+    <table>
+      <form action = "" method = "POST">
+        <tr>
+          <th>Item</th>
+          <th>Number</th>
+          <th>Cost</th>
+        </tr>
+        <?php
+          require_once("PHP/Cart_Cookies/Row_Creator.php");
+          $fail = true;
+          if(isset($_COOKIE["cart_cookie"])){
+            $menu = cookieToHash($_COOKIE["cart_cookie"]);
+            $empty = true;
+            foreach($menu as $key=>$value){
+              if($menu[$key] > 0){
+                createRow($key,$value);
+                $empty = false;
+                $fail = false;
+              }
+            }
+            if($empty){
+              print"<tr><td colspan='3'> It looks like your cart is empty. </td></tr>";
+            }
+          }
+          if($fail){
+            print"<tr><td colspan='3'> Oops. Looks like we couldn't process your order </td></tr>";
+          }
 
-  </div>
+        ?>
+      </form>
+    </table>
     <footer>
       <table>
           <tr id = "email">
