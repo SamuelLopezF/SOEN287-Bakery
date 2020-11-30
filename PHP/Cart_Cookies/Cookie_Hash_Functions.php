@@ -1,16 +1,16 @@
 <?php
     // File Details: Provides functions that allow for cookie/hash conversion
     // Last Edited By: Sobhan
-    // Edit Date: 26-Nov-2020
-    // Edit Num: 1
-    // Edit Details: Created File
+    // Edit Date: 29-Nov-2020
+    // Edit Num: 2
+    // Edit Details: Added increment and decrement cart
 
     // Turns the cookie string into a hash
     function cookieToHash($string){
         if(isset($string)) {
             $temp = explode(" ", $string);
             $menu = array() ;
-            for($i = 0; $i < sizeof($temp) - 2; $i = $i + 2){
+            for($i = 0; $i < sizeof($temp) - 1; $i = $i + 2){
                $menu["$temp[$i]"] = (int) $temp[$i+1];
            }
            return $menu; 
@@ -48,6 +48,37 @@
         }
         else
             echo "0";
+    }
+
+    function hashToString($hash){
+        $i = 0;
+        $temp = array();
+        foreach($hash as $name=>$count){
+        $temp[$i++] = $name;
+        $temp[$i++] = $count;
+        }
+        return implode(" ", $temp);
+    }
+
+    function incrementCart(){
+        if(isset($_COOKIE["cart_cookie"]) && isset($_POST["inc"])){
+            $hash = cookieToHash($_COOKIE["cart_cookie"]);
+            $hash[$_POST["inc"]] = $hash[$_POST["inc"]] + 1;
+            print_r($hash);
+            hashToCookie($hash);
+            $_COOKIE["cart_cookie"] = hashToString($hash);
+        }
+    }
+
+    function decrementCart(){
+        if(isset($_COOKIE["cart_cookie"]) && isset($_POST["dec"])){
+            $hash = cookieToHash($_COOKIE["cart_cookie"]);
+            $hash[$_POST["dec"]] = $hash[$_POST["dec"]] - 1;
+            echo (hashToString($hash));
+            print_r($hash);
+            hashToCookie($hash);
+            $_COOKIE["cart_cookie"] = hashToString($hash);
+        }
     }
 
 
