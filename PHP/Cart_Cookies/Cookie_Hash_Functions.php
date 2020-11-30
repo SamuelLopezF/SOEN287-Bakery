@@ -3,7 +3,7 @@
     // Last Edited By: Sobhan
     // Edit Date: 29-Nov-2020
     // Edit Num: 2
-    // Edit Details: Added increment and decrement cart
+    // Edit Details: Added increment and decrement cart, fixed a serious bug
 
     // Turns the cookie string into a hash
     function cookieToHash($string){
@@ -64,7 +64,6 @@
         if(isset($_COOKIE["cart_cookie"]) && isset($_POST["inc"])){
             $hash = cookieToHash($_COOKIE["cart_cookie"]);
             $hash[$_POST["inc"]] = $hash[$_POST["inc"]] + 1;
-            print_r($hash);
             hashToCookie($hash);
             $_COOKIE["cart_cookie"] = hashToString($hash);
         }
@@ -74,8 +73,6 @@
         if(isset($_COOKIE["cart_cookie"]) && isset($_POST["dec"])){
             $hash = cookieToHash($_COOKIE["cart_cookie"]);
             $hash[$_POST["dec"]] = $hash[$_POST["dec"]] - 1;
-            echo (hashToString($hash));
-            print_r($hash);
             hashToCookie($hash);
             $_COOKIE["cart_cookie"] = hashToString($hash);
         }
