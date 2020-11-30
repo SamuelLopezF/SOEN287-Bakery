@@ -2,16 +2,20 @@
 <?php require_once("PHP/Cart_Cookies/Cookie_Hash_Functions.php"); ?>
 <!--
 	Last Edited By: Sobhan
-	Edit Date: 26-Nov-2020
-	Edit Number: 5
+	Edit Date: 29-Nov-2020
+	Edit Number: 6
 	Edit Details:
 		Cart
     Cart rows
+    Allow Editing of item numbers
 -->
 <!-- PHP -->
 <?php
+    incrementCart();
+    decrementCart();
     if(isset($_COOKIE["cart_cookie"]))
         $menu = cookieToHash($_COOKIE["cart_cookie"]);
+    
 ?>  
 <!-- ========================= End of Important PHP ========================= -->
 <!DOCTYPE html>
@@ -47,33 +51,35 @@
     </header>
     
     <table>
-      <tr>
-        <th>Item</th>
-        <th>Number</th>
-        <th>Cost</th>
-      </tr>
-      <?php
-        require_once("PHP/Cart_Cookies/Row_Creator.php");
-        $fail = true;
-        if(isset($_COOKIE["cart_cookie"])){
-          $menu = cookieToHash($_COOKIE["cart_cookie"]);
-          $empty = true;
-          foreach($menu as $key=>$value){
-            if($menu[$key] > 0){
-              createRow($key,$value);
-              $empty = false;
-              $fail = false;
+      <form action = "" method = "POST">
+        <tr>
+          <th>Item</th>
+          <th>Number</th>
+          <th>Cost</th>
+        </tr>
+        <?php
+          require_once("PHP/Cart_Cookies/Row_Creator.php");
+          $fail = true;
+          if(isset($_COOKIE["cart_cookie"])){
+            $menu = cookieToHash($_COOKIE["cart_cookie"]);
+            $empty = true;
+            foreach($menu as $key=>$value){
+              if($menu[$key] > 0){
+                createRow($key,$value);
+                $empty = false;
+                $fail = false;
+              }
+            }
+            if($empty){
+              print"<tr><td colspan='3'> It looks like your cart is empty. </td></tr>";
             }
           }
-          if($empty){
-            print"<tr><td colspan='3'> It looks like your cart is empty. </td></tr>";
+          if($fail){
+            print"<tr><td colspan='3'> Oops. Looks like we couldn't process your order </td></tr>";
           }
-        }
-        if($fail){
-          print"<tr><td colspan='3'> Oops. Looks like we couldn't process your order </td></tr>";
-        }
 
-      ?>
+        ?>
+      </form>
     </table>
     <footer>
       <table>
