@@ -2,10 +2,9 @@
 <?php require_once(__DIR__."/../PHP/Cart_Cookies/Cookie_Hash_Functions.php"); ?>
 <!--
 	Last Edited By: Sobhan
-	Edit Date: 26-Nov-2020
-	Edit Number: 3
-	Edit Details:
-		Cart
+	Edit Date: 29-Nov-2020
+	Edit Number: 4
+	Edit Details: Removed Order Page
 -->
 <!-- PHP -->
 <?php
@@ -46,7 +45,7 @@
                         <th> <a href = "../index.php" class = "logo"><img width="100" src="../Styles/BakeryLogo.png" alt="Dulceria China logo" class = "logo"/> </a></th>
                         <th><a href = "../index.php"> Home </a></th>
                         <th><a href = "../menu.php"> Menu </a></th>
-                        <th><a href = "../order.php"> Order </a></th>
+                        <!-- <th><a href = "../order.php"> Order </a></th> -->
                         <th><a href = "../about_us.php"> About Us </a></th>
                         <th><a href = "../contact_us.php"> Contact Us </a></th>
                         <th><a href = "../account.php"> Account </a></th>       
