@@ -99,6 +99,35 @@
             </p><br/>
         </div>
         <br/>
+
+        <div class="not_banner">
+            <?php
+            include '../db_conn.php';
+            $sql = "SELECT * FROM products WHERE type='buns';";
+            $result = mysqli_query($connect, $sql);
+            ?>
+            <h3>You may also like</h3>
+            <table>
+                <tbody>
+                        <tr>
+                        <?php
+                            while ($row = mysqli_fetch_assoc($result)){
+                                if($row['name'] !== 'Pork Bun'){
+                            ?>
+                            <td>
+                            <h4><?php echo $row['name']; ?></h4>
+                            <a href="<?php echo $row['url']; ?>">
+                                <img src="../Styles/<?php echo $row['image']; ?>" alt="../<?php echo $row['image']; ?>" width="450px" height="350px" class="small_brush">
+                            </a>
+                            </td>
+                            <?php
+                                }
+                            }
+                        ?>
+                        </tr>
+                </tbody>
+            </table>
+        </div>
         
         <!-- Footer -->
         <footer>

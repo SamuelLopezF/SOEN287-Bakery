@@ -5,6 +5,11 @@
 	Edit Date: 29-Nov-2020
 	Edit Number: 4
 	Edit Details: Removed Order Page
+
+    Last Edited By: Bryan
+	Edit Date: 29-Nov-2020
+	Edit Number: 5
+	Edit Details: Added related items
 -->
 <!-- PHP -->
 <?php
@@ -98,6 +103,38 @@
         </div>
         <br/>
         
+        <!-- Related items -->
+        <div class="not_banner">
+            <?php
+            include '../db_conn.php';
+            $sql = "SELECT * FROM products WHERE type='cake';";
+            $result = mysqli_query($connect, $sql);
+            ?>
+            <h3>You may also like</h3>
+            <table>
+                <tbody>
+                <?php
+                    while ($row = mysqli_fetch_assoc($result)){
+                        if($row['name'] !== 'Cheese Cake'){
+                ?>
+                        <tr>
+                            <td>
+                                <a href="<?php echo $row['url']; ?>">
+                                    <img src="../Styles/<?php echo $row['image']; ?>" alt="../<?php echo $row['image']; ?>" width="450px" height="350px" class="small_brush">
+                                </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><h4><?php echo $row['name']; ?></h4></td>
+                        </tr>
+                <?php
+                        }
+                    }
+                ?>
+                </tbody>
+            </table>
+        </div>
+
         <!-- Footer -->
         <footer>
             <table>

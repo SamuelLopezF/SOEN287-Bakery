@@ -1,5 +1,6 @@
 <?php require_once(__DIR__."/../PHP/Cart_Cookies/Cart_Cookie.php"); ?>
 <?php require_once(__DIR__."/../PHP/Cart_Cookies/Cookie_Hash_Functions.php"); ?>
+<?php session_start(); ?>
 <!--
 	Last Edited By: Sobhan
 	Edit Date: 26-Nov-2020
@@ -99,6 +100,36 @@
         </div>
         <br/>
         
+        <!-- Related Items -->
+        <div class="not_banner">
+            <?php
+            include '../db_conn.php';
+            $sql = "SELECT * FROM products WHERE type='biscuit';";
+            $result = mysqli_query($connect, $sql);
+            ?>
+            <h3>You may also like</h3>
+            <table>
+                <tbody>
+                        <tr>
+                        <?php
+                            while ($row = mysqli_fetch_assoc($result)){
+                                if($row['name'] !== 'Almond Cookies'){
+                            ?>
+                            <td>
+                            <h4><?php echo $row['name']; ?></h4>
+                            <a href="<?php echo $row['url']; ?>">
+                                <img src="../Styles/<?php echo $row['image']; ?>" alt="../<?php echo $row['image']; ?>" width="450px" height="350px" class="small_brush">
+                            </a>
+                            </td>
+                            <?php
+                                }
+                            }
+                        ?>
+                        </tr>
+                </tbody>
+            </table>
+        </div>
+
         <!-- Footer -->
         <footer>
             <table>
