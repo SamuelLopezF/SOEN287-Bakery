@@ -4,10 +4,11 @@
 <?php include "comments_functions.php"; ?>
 <!--
 	Last Edited By: Sobhan
-	Edit Date: 26-Nov-2020
-	Edit Number: 4
+	Edit Date: 06-Nov-2020
+	Edit Number: 5
 	Edit Details:
 		Cart
+        CSS
 -->
 <!-- PHP -->
 <?php
@@ -26,17 +27,40 @@
     <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
     <link href="Styles/template.css" rel="stylesheet">
     <link href="Styles/comments.css" rel="stylesheet">
+    <style type = "text/CSS">
+        .homeBar h1 {font-size: 3vw;}
+        .homeBar img {
+            width: 6vw;
+            height: 6vw;
+        }
+        .homeBar {
+            margin: auto;
+        }
+        .homeBar td * {
+            text-align: center;
+            vertical-align: center;
+            margin-top: 0;
+            margin-bottom: 0;
+            padding-top: 0;
+            padding-bottom: 0;
+        }
+        .homeBar td {
+            text-align: center;
+            vertical-align: center;
+        }
+        nav table {height: 6vw;}
 
+        #carousel {
+            height: 20vw;
+            width: 30vw;
+        }
+    </style>
 </head>
-<body>
-    <table style="margin-left:35%">
+<body >
+    <table class = "homeBar">
         <tr>
-            <td>
-                <img width="100" src="Styles/BakeryLogo.png" alt="Dulceria China logo"> 
-            </td>
-            <td>
-                <h1> Dulceria China</h1>
-            </td>
+            <td><img width="100" src="Styles/BakeryLogo.png" alt="Dulceria China logo"> </td>
+            <td><h1> Dulceria China</h1></td>
         </tr>
     </table>
         
@@ -44,7 +68,7 @@
         <nav>
             <table>
                 <tr>
-                    <th><a href = "index.php" class = "current_page"> Home </a></th>
+                    <th class = "current_page"><a href = "index.php" class = "current_page"> Home </a></th>
                     <th><a href = "menu.php"> Menu </a></th>
                     <!-- <th><a href = "order.html"> Order </a></th> -->
                     <th><a href = "about_us.php"> About Us </a></th>
