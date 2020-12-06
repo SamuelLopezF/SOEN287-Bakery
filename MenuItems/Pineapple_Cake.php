@@ -74,7 +74,7 @@
                         <td><input type = "text" class = "input_price" name = "price"/></td>
                     </tr>
                     <tr>
-                        <td colspan = "2"><button type = "button" class = "add_btn" id = "pineapple_cake" name = "add_to_cart" value = "pineapple_cake">Add to Cart</button></td>
+                        <td colspan = "2"><button type = "submit" class = "add_btn" id = "pineapple_cake" name = "add_to_cart" value = "pineapple_cake">Add to Cart</button></td>
                     </tr>
                 </table>
             </form>
