@@ -72,6 +72,9 @@ button {
 
 button:hover {background-color: var(--light_red);}
 
+button:disabled {background-color: grey;}
+button:disabled:hover {background-color: grey;}
+
 /*=========== Navigation Bar ===========*/
 header {
     background-color: var(--red);
