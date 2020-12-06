@@ -30,7 +30,7 @@
 	    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
         <link type = "text/css" rel = "stylesheet" href = "Styles/template.css"/>
         <style type = "text/css" rel = "stylesheet">
-            /* .menuItem:hover {background-color: var(--light_beige);} */
+            .menuItem figure img:hover {opacity: 0.6;}
 
             #filter_menu {
                 position: fixed;
