@@ -5,7 +5,7 @@
 	Edit Date: 06-Dec-2020
 	Edit Number: 7
 	Edit Details:
-		Cart
+		Cart Appearance
     Cart rows
     Allow Editing of item numbers
 -->
@@ -29,6 +29,12 @@
         <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
         <link type = "text/css" rel = "stylesheet" href = "Styles/template.css"/>
         <link type = "text/css" rel = "stylesheet" href = "Styles/menu items.css"/>
+        <style type = "text/CSS">
+            table.cartTable {
+              width: 75%;
+              border-collapse: collapse;
+            }
+        </style>
     </head>
     <body>
       <header>
@@ -48,13 +54,13 @@
                 </tr>
             </table>
         </nav>
-    </header>
+    </header> <br/>
     
-    <table>
+    <table class = "cartTable">
       <form action = "" method = "POST">
-        <tr>
+        <tr style = "background-color: var(--beige);">
           <th>Item</th>
-          <th>Number</th>
+          <th colspan = "3">Number</th>
           <th>Cost</th>
         </tr>
         <?php
@@ -64,64 +70,61 @@
             $menu = cookieToHash($_COOKIE["cart_cookie"]);
             $empty = true;
             foreach($menu as $key=>$value){
+              $fail = false;
               if($menu[$key] > 0){
                 createRow($key,$value);
                 $empty = false;
-                $fail = false;
               }
             }
             if($empty){
-              print"<tr><td colspan='3'> It looks like your cart is empty. </td></tr>";
+              print"<tr><td colspan='5'> <h4> It looks like your cart is empty.</h4> </td></tr>";
             }
           }
           if($fail){
-            print"<tr><td colspan='3'> Oops. Looks like we couldn't process your order </td></tr>";
+            print"<tr><td colspan='5'> <h4> Oops. Looks like we couldn't process your order </h4> </td></tr>";
           }
 
         ?>
-      </form>
+      </form> <br/>
     </table>
+
+    <form>
+      <table style = "width: 75%;">
+        <tr>
+          <td style = "text-align: left;">
+            <?php
+              if($empty || $fail )
+                echo "<button type = 'submit' name = 'submit_order' disabled> Submit Order </button>";
+              else
+                echo "<button type = 'submit' name = 'submit_order'> Submit Order </button>";
+            ?>
+         </td>
+        </tr>
+      </table>
+    </form>
+
     <footer>
       <table>
           <tr id = "email">
-              <td>
-                  <img src = "Styles/email.png" alt = "Email" width = "25px" height = "25px"/>
-              </td>
-              <td>
-                  <a href = "mailto:dulceriachina.ec@gmail.com">dulceriachina.ec@gmail.com</a>
-              </td>
-
+              <td><img src = "Styles/email.png" alt = "Email" width = "25px" height = "25px"/></td>
+              <td><a href = "mailto:dulceriachina.ec@gmail.com">dulceriachina.ec@gmail.com</a></td>
           </tr>
           <tr id = "telephone">
-              <td>
-                  <img src = "Styles/phone.png" alt = "Phone" width = "25px" height = "25px"/>
-              </td>
-              <td>
-                  (04) 251-0363 - (593) 997-045-024
-              </td>
-
+              <td><img src = "Styles/phone.png" alt = "Phone" width = "25px" height = "25px"/></td>
+              <td>(04) 251-0363 - (593) 997-045-024</td>
           </tr>
           <tr id = "facebook">
-              <td>
-                  <img src = "Styles/facebook.png" alt = "Facebook" width = "25px" height = "25px"/>
-              </td>
-              <td>
-                  <a href = "https://www.facebook.com/dulceriachina/" target = "_blank"> facebook.com/dulceriachina</a>
-              </td>
-
+              <td><img src = "Styles/facebook.png" alt = "Facebook" width = "25px" height = "25px"/></td>
+              <td><a href = "https://www.facebook.com/dulceriachina/" target = "_blank"> facebook.com/dulceriachina</a></td>
           </tr>
           <tr id = "instagram">
-              <td>
-                  <img src = "Styles/instagram.png" alt = "Instagram" width = "25px" height = "25px"/>
-              </td>
-              <td>
-                <a href="https://www.instagram.com/dulceriachina/">@dulceriachina</a> 
-              </td>
-
+              <td><img src = "Styles/instagram.png" alt = "Instagram" width = "25px" height = "25px"/></td>
+              <td><a href="https://www.instagram.com/dulceriachina/">@dulceriachina</a> </td>
           </tr>
       </table>
       <p> ©2020 Dulceria China </p>
   </footer>
   <script type="module" src="JavaScript/Cart.js"></script>
+  <script type = "text/JavaScript" src = "JavaScript/CartRowSelector.js"></script>
 </body>
 </html>
