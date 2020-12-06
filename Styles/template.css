@@ -1,9 +1,9 @@
 /*
 	Last Edited By: Sobhan
-	Edit Date: 25-Nov-2020
-	Edit Number: 3
+	Edit Date: 06-Dec-2020
+	Edit Number: 4
 	Edit Details:
-        Support for Logo Link
+        Made more responsive
 		
 */
 
@@ -49,7 +49,7 @@ p {
     margin-right: auto;  
 }
 
-* {font-family: "Avenir","Architects Daughter", "Permanent Marker", "Tekton", "Comic Sans MS", Verdana, Arial, sans-serif;}
+* {font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;}
 
 h1 {font-size: 48px;}
 h2 {font-size: 40px;}
@@ -95,6 +95,12 @@ nav table tr th a {
     font-size: 2vw;
     padding: 0.075em 0.75em;
 }
+
+nav table th:hover {
+    background-color: var(--dark_red);
+}
+
+nav table th.logo:hover {background-color: var(--red);}
 
 nav table tr th a:hover {background-color: var(--dark_red);}
 a.logo:hover {background-color: var(--red);}
@@ -155,6 +161,11 @@ footer {
 table.about_table {
     width: 50%;
     border-collapse: collapse;
+}
+
+.about_table img {
+    width: 40vw;
+    height: 20vw;
 }
 
 .alt_row {
@@ -249,7 +260,18 @@ input, textarea {
     font-family: Helvetica, sans-serif;
 }
 
+td.menuItem {
+    padding: 0;
+}
+
+td.menuItem table.menu_button input {width: 8vw;}
+
 .menu_button label {font-weight: bold;}
+
+.menuItem figure img {
+    height: 14vw !important;
+    width: 18vw !important;
+}
 
 .menuItem {
     background-color: var(--beige);
@@ -262,18 +284,20 @@ input, textarea {
 
 /*=========== Login ===========*/
 
-#login {width: 30%;
+#login {
+    width: 30%;
     margin: auto;
-    background-color: var(--light_beige);}
+    background-color: var(--light_beige);
+}
 
 #login input {
-    width: 200px;
+    width: 95%;
     border: none;
     border-radius: 5px;
 }
 
 #login button {
-    width: 200px;
+    width: 95%;
 }
 
 #login th {
