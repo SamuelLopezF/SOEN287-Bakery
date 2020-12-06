@@ -10,6 +10,11 @@
 	Edit Date: 29-Nov-2020
 	Edit Number: 5
 	Edit Details: Added related items
+
+	Last Edited By: Sobhan
+	Edit Date: 06-Dec-2020
+	Edit Number: 6
+	Edit Details: CSS
 -->
 <!-- PHP -->
 <?php
@@ -47,10 +52,10 @@
             <nav>
                 <table>
                     <tr>
-                        <th> <a href = "../index.php" class = "logo"><img width="100" src="../Styles/BakeryLogo.png" alt="Dulceria China logo" class = "logo"/> </a></th>
+                        <th class = "logo"> <a href = "../index.php" class = "logo"><img width="100" src="../Styles/BakeryLogo.png" alt="Dulceria China logo" class = "logo"/> </a></th>
                         <th><a href = "../index.php"> Home </a></th>
                         <th><a href = "../menu.php"> Menu </a></th>
-                        <!-- <th><a href = "../order.php"> Order </a></th> -->
+                        <!-- <th><a href = "../order.html"> Order </a></th> -->
                         <th><a href = "../about_us.php"> About Us </a></th>
                         <th><a href = "../contact_us.php"> Contact Us </a></th>
                         <th><a href = "../account.php"> Account </a></th>       
