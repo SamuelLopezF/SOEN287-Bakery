@@ -5,7 +5,8 @@
 	Edit Date: 06-Dec-2020
 	Edit Number: 5
 	Edit Details:
-		Nav Bar
+        Nav Bar
+        Mailing functionality
 -->
 <!-- PHP -->
 <?php
@@ -71,7 +72,7 @@
 
             </td>
             <td rowspan = "2">
-            <form class = "message small_brush" action = "">
+            <form class = "message small_brush" action = "Mail/PHPMailerTemplate/contactMail.php" method = "POST">
                 <h4> Send us a message now!</h4>
                 <table>
                     <tr>
@@ -82,12 +83,8 @@
                         <td><input type="text" id="fname" name="fname" placeholder="First name" required></td>
                         <td><input type="text" id="lname" name="lname" placeholder="Last name" required></td>
                     </tr>
-                    <tr>
-                        <td colspan = "2">Email Address *</td>
-                    </tr>
-                    <tr>
-                        <td colspan = "2"><input type="email" id="email" name="email" placeholder="sample@email.com" required></td>   
-                    </tr>
+                    <tr><td colspan = "2">Email Address *</td></tr>
+                    <tr><td colspan = "2"><input type="email" id="email" name="email" placeholder="sample@email.com" required></td></tr>
                     <tr>
                         <td colspan = "2">Phone Number *</td>
                     </tr>
@@ -106,8 +103,7 @@
                     </tr>
                     <tr id = "submit">
                         <td colspan = "2">
-                            <button onmouseover = "this.style.backgroundColor = '#a72429';"
-                            onmouseout = "this.style.backgroundColor = '#8d191c';">Submit</button>
+                            <button type = "submit" name = "submit" value = "submit" >Submit</button>
                         </td>
                     </tr>
                 </table>
