@@ -44,7 +44,7 @@
             <nav>
                 <table>
                     <tr>
-                        <th> <a href = "../index.php" class = "logo"><img width="100" src="../Styles/BakeryLogo.png" alt="Dulceria China logo" class = "logo"/> </a></th>
+                        <th class = "logo"> <a href = "../index.php" class = "logo"><img width="100" src="../Styles/BakeryLogo.png" alt="Dulceria China logo" class = "logo"/> </a></th>
                         <th><a href = "../index.php"> Home </a></th>
                         <th><a href = "../menu.php"> Menu </a></th>
                         <!-- <th><a href = "../order.html"> Order </a></th> -->
