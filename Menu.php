@@ -2,16 +2,21 @@
 <?php require_once("PHP/Cart_Cookies/Cookie_Hash_Functions.php"); ?>
 <!--
 	Last Edited By: Sobhan
-	Edit Date: 26-Nov-2020
-	Edit Number: 4
+	Edit Date: 06-Dec-2020
+	Edit Number: 5
 	Edit Details:
-		Cart
+		Provided cart functionality directly from the menu
+        Updated nav bar
 -->
 <!-- PHP -->
 <?php
     if(isset($_COOKIE["cart_cookie"]))
         $menu = cookieToHash($_COOKIE["cart_cookie"]);
-?>  
+    if(isset($_POST["add_to_cart"])){
+        $menu[$_POST["add_to_cart"]] += (int) $_POST["count"];
+        hashToCookie($menu);
+    }
+?>   
 <!-- ========================= End of Important PHP ========================= -->
 <!DOCTYPE html>
 <html lang = "en">
@@ -55,9 +60,9 @@
             <nav>
                 <table>
                     <tr>
-                        <th> <a href = "index.php" class = "logo"><img width="100" src="Styles/BakeryLogo.png" alt="Dulceria China logo" class = "logo"/> </a></th>
+                        <th class = "logo"> <a href = "index.php" class = "logo"><img width="100" src="Styles/BakeryLogo.png" alt="Dulceria China logo" class = "logo"/> </a></th>
                         <th><a href = "index.php"> Home </a></th>
-                        <th><a href = "menu.php" class = "current_page"> Menu </a></th>
+                        <th class = "current_page"><a href = "menu.php" class = "current_page"> Menu </a></th>
                         <!-- <th><a href = "order.html"> Order </a></th> -->
                         <th><a href = "about_us.php"> About Us </a></th>
                         <th><a href = "contact_us.php"> Contact Us </a></th>
@@ -109,6 +114,21 @@
                                 <img src="Styles/Almond cookies.jpg" alt="Almond cookies.jpg" 
                                     height="210px" width="270px" class = "small_brush">
                                 </a>
+                                <form action = "" method = "POST">
+                                    <table class = "menu_button">
+                                        <tr>
+                                            <td><label>Pieces (#)</label></td>
+                                            <td><label>Total Price ($)</label></td>   
+                                        </tr>
+                                        <tr>
+                                            <td><input type = "text" class = "input_pieces" name = "count"/></td>
+                                            <td><input type = "text" class = "input_price" name = "price"/></td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan = "2"><button type = "submit" class = "add_btn" id = "almond_cookies" name = "add_to_cart" value = "almond_cookies">Add to Cart</button></td>
+                                        </tr>
+                                    </table>
+                                </form>
                             </figure>
                         </div>
                     </td>
@@ -121,6 +141,21 @@
                                 <img src="Styles/Cheese cake.jpg" alt="Cheese cake.jpg" 
                                     height="210px" width="270px" class = "small_brush">
                                 </a>
+                                <form action = "" method = "POST">
+                                    <table class = "menu_button">
+                                        <tr>
+                                            <td><label>Pieces (#)</label></td>
+                                            <td><label>Total Price ($)</label></td>   
+                                        </tr>
+                                        <tr>
+                                            <td><input type = "text" class = "input_pieces" name = "count"/></td>
+                                            <td><input type = "text" class = "input_price" name = "price"/></td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan = "2"><button type = "submit" class = "add_btn" id = "cheese_cake" name = "add_to_cart" value = "cheese_cake">Add to Cart</button></td>
+                                        </tr>
+                                    </table>
+                                </form>
                             </figure>
                         </div>
                     </td>
@@ -133,6 +168,21 @@
                                 <img src="Styles/Chk bisc2.jpg" alt="Chicken Biscuit" 
                                     height="210px" width="270px" class = "small_brush">
                                 </a>
+                                <form action = "" method = "POST">
+                                    <table class = "menu_button">
+                                        <tr>
+                                            <td><label>Pieces (#)</label></td>
+                                            <td><label>Total Price ($)</label></td>   
+                                        </tr>
+                                        <tr>
+                                            <td><input type = "text" class = "input_pieces" name = "count"/></td>
+                                            <td><input type = "text" class = "input_price" name = "price"/></td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan = "2"><button type = "submit" class = "add_btn" id = "chicken_biscuit" name = "add_to_cart" value = "chicken_biscuit">Add to Cart</button></td>
+                                        </tr>
+                                    </table>
+                                </form>
                             </figure>
                         </div>
                     </td>
@@ -147,6 +197,21 @@
                                 <img src="Styles/Egg tart.jpg" alt="Egg tart.jpg" 
                                     height="210px" width="270px" class = "small_brush">
                                 </a>
+                                <form action = "" method = "POST">
+                                    <table class = "menu_button">
+                                        <tr>
+                                            <td><label>Pieces (#)</label></td>
+                                            <td><label>Total Price ($)</label></td>   
+                                        </tr>
+                                        <tr>
+                                            <td><input type = "text" class = "input_pieces" name = "count"/></td>
+                                            <td><input type = "text" class = "input_price" name = "price"/></td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan = "2"><button type = "submit" class = "add_btn" id = "egg_tart" name = "add_to_cart" value = "egg_tart">Add to Cart</button></td>
+                                        </tr>
+                                    </table>
+                                </form>
                             </figure>
                         </div>
                     </td>
@@ -158,7 +223,22 @@
                                 <a href = "MenuItems/Guava_Bites.php">
                                 <img src="Styles/Guava bites.jpg" alt="Guava Bites.jpg" 
                                     height="210px" width="270px" class = "small_brush">
-                                
+                                </a>
+                                <form action = "" method = "POST">
+                                    <table class = "menu_button">
+                                        <tr>
+                                            <td><label>Pieces (#)</label></td>
+                                            <td><label>Total Price ($)</label></td>   
+                                        </tr>
+                                        <tr>
+                                            <td><input type = "text" class = "input_pieces" name = "count"/></td>
+                                            <td><input type = "text" class = "input_price" name = "price"/></td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan = "2"><button type = "submit" class = "add_btn" id = "guava_bites" name = "add_to_cart" value = "guava_bites">Add to Cart</button></td>
+                                        </tr>
+                                    </table>
+                                </form>
                             </figure>
                         </div>
                     </td>
@@ -171,6 +251,22 @@
                                 <img src="Styles/Coconut mochi.jpg" alt="Coconut Mochi.jpg"
                                     height="210px" width="270px" class = "small_brush">
                                 </a>
+                            
+                                <form action = "" method = "POST">
+                                    <table class = "menu_button">
+                                        <tr>
+                                            <td><label>Pieces (#)</label></td>
+                                            <td><label>Total Price ($)</label></td>   
+                                        </tr>
+                                        <tr>
+                                            <td><input type = "text" class = "input_pieces" name = "count"/></td>
+                                            <td><input type = "text" class = "input_price" name = "price"/></td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan = "2"><button type = "submit" class = "add_btn" id = "coconut_mochi" name = "add_to_cart" value = "coconut_mochi">Add to Cart</button></td>
+                                        </tr>
+                                    </table>
+                                </form>
                             </figure>
                         </div>
                     </td>
@@ -185,6 +281,21 @@
                                 <img src="Styles/Pineapple bites.jpg" alt="Pineapple Bites.jpg" 
                                     height="210px" width="270px" class = "small_brush">
                                 </a>
+                            <form action = "" method = "POST">
+                                    <table class = "menu_button">
+                                        <tr>
+                                            <td><label>Pieces (#)</label></td>
+                                            <td><label>Total Price ($)</label></td>   
+                                        </tr>
+                                        <tr>
+                                            <td><input type = "text" class = "input_pieces" name = "count"/></td>
+                                            <td><input type = "text" class = "input_price" name = "price"/></td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan = "2"><button type = "submit" class = "add_btn" id = "pineapple_bites" name = "add_to_cart" value = "pineapple_bites">Add to Cart</button></td>
+                                        </tr>
+                                    </table>
+                                </form>
                             </figure>
                         </div>
                     </td>
@@ -197,6 +308,21 @@
                                 <img src="Styles/Pineapple cake.jpg" alt="Pineapple Cake.jpg" 
                                     height="210px" width="270px" class = "small_brush">
                                 </a>
+                            <form action = "" method = "POST">
+                                    <table class = "menu_button">
+                                        <tr>
+                                            <td><label>Pieces (#)</label></td>
+                                            <td><label>Total Price ($)</label></td>   
+                                        </tr>
+                                        <tr>
+                                            <td><input type = "text" class = "input_pieces" name = "count"/></td>
+                                            <td><input type = "text" class = "input_price" name = "price"/></td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan = "2"><button type = "submit" class = "add_btn" id = "pineapple_cake" name = "add_to_cart" value = "pineapple_cake">Add to Cart</button></td>
+                                        </tr>
+                                    </table>
+                                </form>
                             </figure>
                         </div>
                     </td>
@@ -209,6 +335,21 @@
                                 <img src="Styles/Tan Wong.jpg" alt="Tan Wong.jpg" 
                                     height="210px" width="270px" class = "small_brush">
                                 </a>
+                            <form action = "" method = "POST">
+                                    <table class = "menu_button">
+                                        <tr>
+                                            <td><label>Pieces (#)</label></td>
+                                            <td><label>Total Price ($)</label></td>   
+                                        </tr>
+                                        <tr>
+                                            <td><input type = "text" class = "input_pieces" name = "count"/></td>
+                                            <td><input type = "text" class = "input_price" name = "price"/></td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan = "2"><button type = "submit" class = "add_btn" id = "tan_wong_su" name = "add_to_cart" value = "tan_wong_su">Add to Cart</button></td>
+                                        </tr>
+                                    </table>
+                                </form>
                             </figure>
                         </div>
                     </td>
@@ -224,6 +365,21 @@
                                 <img src="Styles/Tau sa.jpg" alt="Almond cookies.jpg" 
                                     height="210px" width="270px" class = "small_brush">
                                 </a>
+                                <form action = "" method = "POST">
+                                    <table class = "menu_button">
+                                        <tr>
+                                            <td><label>Pieces (#)</label></td>
+                                            <td><label>Total Price ($)</label></td>   
+                                        </tr>
+                                        <tr>
+                                            <td><input type = "text" class = "input_pieces" name = "count"/></td>
+                                            <td><input type = "text" class = "input_price" name = "price"/></td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan = "2"><button type = "submit" class = "add_btn" id = "tau_sa_pen" name = "add_to_cart" value = "tau_sa_pen">Add to Cart</button></td>
+                                        </tr>
+                                    </table>
+                                </form>
                             </figure>
                         </div>
                     </td>
@@ -246,6 +402,21 @@
                                 <img src="Styles/Pork bun2.jpg" alt="Pork Bun.jpg" 
                                     height="210px" width="270px" class = "small_brush">
                                 </a>
+                                <form action = "" method = "POST">
+                                    <table class = "menu_button">
+                                        <tr>
+                                            <td><label>Pieces (#)</label></td>
+                                            <td><label>Total Price ($)</label></td>   
+                                        </tr>
+                                        <tr>
+                                            <td><input type = "text" class = "input_pieces" name = "count"/></td>
+                                            <td><input type = "text" class = "input_price" name = "price"/></td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan = "2"><button type = "submit" class = "add_btn" id = "pork_bun" name = "add_to_cart" value = "pork_bun">Add to Cart</button></td>
+                                        </tr>
+                                    </table>
+                                </form>
                             </figure>
                         </div>
                     </td>
@@ -258,6 +429,21 @@
                                 <img src="Styles/RBP22.jpg" alt="RBP.2.jpg" 
                                     height="210px" width="270px" class = "small_brush">
                                 </a>
+                                <form action = "" method = "POST">
+                                    <table class = "menu_button">
+                                        <tr>
+                                            <td><label>Pieces (#)</label></td>
+                                            <td><label>Total Price ($)</label></td>   
+                                        </tr>
+                                        <tr>
+                                            <td><input type = "text" class = "input_pieces" name = "count"/></td>
+                                            <td><input type = "text" class = "input_price" name = "price"/></td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan = "2"><button type = "submit" class = "add_btn" id = "red_bean_paste_bun" name = "add_to_cart" value = "red_bean_paste_bun">Add to Cart</button></td>
+                                        </tr>
+                                    </table>
+                                </form>
                             </figure>
                         </div>
                     </td>
@@ -270,6 +456,21 @@
                                 <img src="Styles/Coconut bun22.jpg" alt="Coconut.jpg" 
                                     height="210px" width="270px" class = "small_brush">
                                 </a>
+                                <form action = "" method = "POST">
+                                    <table class = "menu_button">
+                                        <tr>
+                                            <td><label>Pieces (#)</label></td>
+                                            <td><label>Total Price ($)</label></td>   
+                                        </tr>
+                                        <tr>
+                                            <td><input type = "text" class = "input_pieces" name = "count"/></td>
+                                            <td><input type = "text" class = "input_price" name = "price"/></td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan = "2"><button type = "submit" class = "add_btn" id = "coconut_bun" name = "add_to_cart" value = "coconut_bun">Add to Cart</button></td>
+                                        </tr>
+                                    </table>
+                                </form>
                             </figure>
                         </div>
                     </td>
@@ -284,6 +485,21 @@
                                 <img src="Styles/Custard bun.jpg" alt="Custard bun.jpg" 
                                     height="210px" width="270px" class = "small_brush">
                                 </a>
+                                <form action = "" method = "POST">
+                                    <table class = "menu_button">
+                                        <tr>
+                                            <td><label>Pieces (#)</label></td>
+                                            <td><label>Total Price ($)</label></td>   
+                                        </tr>
+                                        <tr>
+                                            <td><input type = "text" class = "input_pieces" name = "count"/></td>
+                                            <td><input type = "text" class = "input_price" name = "price"/></td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan = "2"><button type = "submit" class = "add_btn" id = "custard_bun" name = "add_to_cart" value = "custard_bun">Add to Cart</button></td>
+                                        </tr>
+                                    </table>
+                                </form>
                             </figure>
                         </div>
                     </td>
@@ -319,6 +535,7 @@
         <!-- <script src="JavaScript/Menu.js"></script> -->
         <!-- Filter Script -->
         <script src = "JavaScript/Filter.js" type = "text/JavaScript"></script>
+        <script src = "JavaScript/SingleMenuItems.js"type = "text/JavaScript"></script>
 
     </body>
 </html>
