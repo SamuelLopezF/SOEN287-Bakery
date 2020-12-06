@@ -2,8 +2,8 @@
 <?php require_once("PHP/Cart_Cookies/Cookie_Hash_Functions.php"); ?>
 <!--
 	Last Edited By: Sobhan
-	Edit Date: 29-Nov-2020
-	Edit Number: 6
+	Edit Date: 06-Dec-2020
+	Edit Number: 7
 	Edit Details:
 		Cart
     Cart rows
@@ -35,15 +35,15 @@
         <nav>
             <table>
                 <tr>
-                  <th> <a href = "index.php" class = "logo"><img width="100" src="Styles/BakeryLogo.png" alt="Dulceria China logo" class = "logo"/> </a></th>
+                  <th class = "logo"> <a href = "index.php" class = "logo"><img width="100" src="Styles/BakeryLogo.png" alt="Dulceria China logo" class = "logo"/> </a></th>
                     <th><a href = "index.php"> Home </a></th>
                     <th><a href = "menu.php"> Menu </a></th>
                     <!-- <th><a href = "order.html"> Order </a></th> -->
                     <th><a href = "about_us.php"> About Us </a></th>
                     <th><a href = "contact_us.php"> Contact Us </a></th>
-                    <th><a href = "account.php"> Account </a></th>
+                    <th ><a href = "account.php" > Account </a></th>
                     
-                    <th class="cart" id='cartIconTopRight'><a href="Cart.php" class = "current_page"><span class="qty" id= 'cartIconTopRightQuantity'><?php if(isSet($menu)) cartSize($menu); else echo("0");?></span><img src="Styles/Cart.png" alt="Cart.html" width="40px" height="40px"/></a></th>
+                    <th class="cart current_page" id='cartIconTopRight'><a href="Cart.php" class = "current_page"><span class="qty" id= 'cartIconTopRightQuantity'><?php if(isSet($menu)) cartSize($menu); else echo("0");?></span><img src="Styles/Cart.png" alt="Cart.html" width="40px" height="40px"/></a></th>
                     
                 </tr>
             </table>
