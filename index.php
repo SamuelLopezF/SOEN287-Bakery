@@ -1,5 +1,7 @@
 <?php require_once("PHP/Cart_Cookies/Cart_Cookie.php"); ?>
 <?php require_once("PHP/Cart_Cookies/Cookie_Hash_Functions.php"); ?>
+<?php include "db_conn.php"; ?>
+<?php include "comments_functions.php"; ?>
 <!--
 	Last Edited By: Sobhan
 	Edit Date: 26-Nov-2020
@@ -23,40 +25,18 @@
     <meta name = "description" content = "Dulceria China is home to some of the best baked Cantonese goods you'll find this side of town. Click to find out more!."/>
     <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
     <link href="Styles/template.css" rel="stylesheet">
-    <style type = "text/CSS">
-        .homeBar h1 {font-size: 3vw;}
-        .homeBar img {
-            width: 6vw;
-            height: 6vw;
-        }
-        .homeBar {
-            margin: auto;
-        }
-        .homeBar td * {
-            text-align: center;
-            vertical-align: center;
-            margin-top: 0;
-            margin-bottom: 0;
-            padding-top: 0;
-            padding-bottom: 0;
-        }
-        .homeBar td {
-            text-align: center;
-            vertical-align: center;
-        }
-        nav table {height: 6vw;}
+    <link href="Styles/comments.css" rel="stylesheet">
 
-        #carousel {
-            height: 20vw;
-            width: 30vw;
-        }
-    </style>
 </head>
-<body >
-    <table class = "homeBar">
+<body>
+    <table style="margin-left:35%">
         <tr>
-            <td><img width="100" src="Styles/BakeryLogo.png" alt="Dulceria China logo"> </td>
-            <td><h1> Dulceria China</h1></td>
+            <td>
+                <img width="100" src="Styles/BakeryLogo.png" alt="Dulceria China logo"> 
+            </td>
+            <td>
+                <h1> Dulceria China</h1>
+            </td>
         </tr>
     </table>
         
@@ -64,7 +44,7 @@
         <nav>
             <table>
                 <tr>
-                    <th class = "current_page"><a href = "index.php" class = "current_page"> Home </a></th>
+                    <th><a href = "index.php" class = "current_page"> Home </a></th>
                     <th><a href = "menu.php"> Menu </a></th>
                     <!-- <th><a href = "order.html"> Order </a></th> -->
                     <th><a href = "about_us.php"> About Us </a></th>
@@ -95,6 +75,7 @@
                 <script  src="JavaScript/MonthSpecial2.js"></script>
             </p>
         </div>
+        <div>
         <table>
             <tr>
                 <td><button type = "button" id = "prev"> < </button></td>
@@ -106,6 +87,31 @@
         </div>
     </div>
     <br/>
+
+    <table>
+        <tr>
+            <td>
+                <div class="not_banner">
+                    <br/>
+                    <?php
+                        echo "<form method='POST' action='".setComment($connect)."'>
+                        <p>Leave a comment</p>
+                        <input type='hidden' name='username' value='Anonymous'>
+                        <input type='hidden' name='date' value='".date('Y-m-d H:i:s')."'>
+                        <textarea name='comment' cols='40' rows='5s'></textarea>
+                        <br/><br/>
+                        <button type='submit' name='submit'>Comment</button>
+                        </form>";
+                    ?>
+                </div>
+            </td>
+            <td>
+                <div style="overflow-y: auto; height:200px; width:800px;">
+                    <?php getComment($connect); ?>
+                </div>
+            </td>
+        </tr>
+    </table>
 
 <footer>
     <table>
