@@ -1,8 +1,8 @@
 <?php
     // Last Edited By: Sobhan
-    // Edit Number: 2
-    // Edit Date: 29-Nov-2020
-    // Edit Details: added buttons
+    // Edit Number: 3
+    // Edit Date: 06-Dec-2020
+    // Edit Details: Formatting
 
     $dataBase = "Database/Item_Info.txt";
 
@@ -17,13 +17,11 @@
         $name = ucwords(str_replace("_"," ",$itemID));
         // print row
         echo("<tr class = 'cartRow'>
-                <td> $name </td>
-                <td> 
-                    <button name = 'dec' value = '$itemID' type = 'submit'> < </button>
-                    $itemCount
-                    <button name = 'inc' value = '$itemID' type = 'submit'> > </button>
-                </td>
-                <td> $".number_format($total,2)." </td>
+                <td style = 'width: 25%;'> $name </td>
+                <td style = 'width: 15%; text-align: right;'> <button name = 'dec' value = '$itemID' type = 'submit'> < </button> </td>
+                <td style = 'width: 20%;'> $itemCount </td>
+                <td style = 'width: 15%; text-align: left;'> <button name = 'inc' value = '$itemID' type = 'submit'> > </button> </td>
+                <td style = 'width: 25%;'> $".number_format($total,2)." </td>
             </tr>");
     }
 
