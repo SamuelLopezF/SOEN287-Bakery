@@ -2,10 +2,11 @@
 <?php require_once("PHP/Cart_Cookies/Cookie_Hash_Functions.php"); ?>
 <!--
 	Last Edited By: Sobhan
-	Edit Date: 26-Nov-2020
-	Edit Number: 3
+	Edit Date: 06-Dec-2020
+	Edit Number: 4
 	Edit Details:
-		Cart
+		CSS
+		Nav bar update
 -->
 <!-- PHP -->
 <?php
@@ -31,11 +32,11 @@
             <nav>
                 <table>
                     <tr>
-                        <th> <a href = "index.php" class = "logo"><img width="100" src="Styles/BakeryLogo.png" alt="Dulceria China logo" class = "logo"/> </a></th>
+                        <th class = "logo"> <a href = "index.php" class = "logo"><img width="100" src="Styles/BakeryLogo.png" alt="Dulceria China logo" class = "logo"/> </a></th>
                         <th><a href = "index.php"> Home </a></th>
                         <th><a href = "menu.php"> Menu </a></th>
                         <!-- <th><a href = "order.html"> Order </a></th> -->
-                        <th><a href = "about_us.php" class = "current_page"> About Us </a></th>
+                        <th class = "current_page"><a href = "about_us.php" class = "current_page"> About Us </a></th>
                         <th><a href = "contact_us.php"> Contact Us </a></th>
                         <th><a href = "account.php"> Account </a></th>
                         
@@ -97,7 +98,7 @@
 						and a very soft cheese cake. 
 					</p>
 					<td>
-						<img src="Styles/Service.jpeg" alt="service placeholder" width="500" height="400" class = "brush">
+						<img src="Styles/Service.jpeg" alt="service placeholder" width="600" height="300" class = "brush">
 					</td>	
 				</td>	
 			</tr>			
