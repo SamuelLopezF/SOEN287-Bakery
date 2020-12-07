@@ -1,5 +1,7 @@
 <?php require_once("PHP/Cart_Cookies/Cart_Cookie.php"); ?>
 <?php require_once("PHP/Cart_Cookies/Cookie_Hash_Functions.php"); ?>
+<?php require_once("PHP\Templates\Template_Functions.php"); ?>
+<?php session_start();?>
 <!--
 	Last Edited By: Sobhan
 	Edit Date: 06-Dec-2020
@@ -47,7 +49,15 @@
                     <!-- <th><a href = "order.html"> Order </a></th> -->
                     <th><a href = "about_us.php"> About Us </a></th>
                     <th><a href = "contact_us.php"> Contact Us </a></th>
-                    <th ><a href = "account.php" > Account </a></th>
+                    <?php if(!empty($_SESSION['login_status']) && $_SESSION['login_status'] == 'logged in')
+                    {
+                        echo "<th><a href = 'profile.php'> My Profile </a></th>";
+                        echo "<th><a href = 'logout.php'> Log Out</a></th>";
+                    }else{
+                        echo '<th><a href = "account.php"> Log In </a></th>';
+                        echo '<th><a href = "register.php"> Sign up </a></th>';
+                    }
+                    ?>
                     
                     <th class="cart current_page" id='cartIconTopRight'><a href="Cart.php" class = "current_page"><span class="qty" id= 'cartIconTopRightQuantity'><?php if(isSet($menu)) cartSize($menu); else echo("0");?></span><img src="Styles/Cart.png" alt="Cart.html" width="40px" height="40px"/></a></th>
                     
@@ -66,6 +76,7 @@
         <?php
           require_once("PHP/Cart_Cookies/Row_Creator.php");
           $fail = true;
+          $empty = true;
           if(isset($_COOKIE["cart_cookie"])){
             $menu = cookieToHash($_COOKIE["cart_cookie"]);
             $empty = true;

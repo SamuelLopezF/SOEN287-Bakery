@@ -21,26 +21,24 @@
     function createFile($user){
         global $cart;
         // create file for appending
-        $file = fopen("$user.txt", "a");
+        $file = fopen("Database/users/$user.txt", "a");
         fwrite($file, "Template1 ".implode(" ", $cart)."\n");
         fwrite($file, "Template2 ".implode(" ", $cart)."\n");
         fwrite($file, "Template3 ".implode(" ", $cart)."\n");
         fflush($file);
         fclose($file);
     }
-
     // takes in a new template as $string and the $templateNumber (1 through 3) and updates it
     function updateTemplate($user, $string, $templateNumber){
-        $fileName = "$user.txt";
+        $fileName = "Database/users/$user.txt";
         $templateIndex = $templateNumber - 1;
         $file = file($fileName);
         $file[$templateIndex] = $string."\n"; // replace the line
         file_put_contents( $fileName , implode("", $file));
     }
-
     // Adds an order
     function addOrder($user, $order){
-        $fileName = "$user.txt";
+        $fileName = "../../Database/users/$user.txt";
         $file = fopen($fileName, "a");
         fwrite($file, date("d-m-Y")." $order\n");
         fflush($file);
@@ -49,7 +47,7 @@
 
     // returns the template number (1 through 3) as a string
     function getTemplate($user, $templateNumber){
-        $fileName = "$user.txt";
+        $fileName = "Database/users/$user.txt";
         $templateIndex = $templateNumber - 1;
         $file = file($fileName);
         return $file[$templateIndex];
@@ -57,7 +55,7 @@
 
     // Gets 5 most recent orders as an array of strings
     function getRecentOrders($user, $num = 5){
-        $fileName = "$user.txt";
+        $fileName = "Database/users/$user.txt";
         $file = file($fileName);
         $orders = array();
         for($i = sizeof($file)-1 ; $i > sizeof($file)-1 -$num ; $i--)
@@ -76,18 +74,21 @@
         $row3 = "";
         for($i = 0 ; $i < sizeof($templateArray) ; $i++){
             $row2 .= "<td>".ucwords(str_replace("_"," ",$templateArray[$i]))."</td>";
-            $row3 .= "<td> <input type = 'text' class = 'quantity template' name = '".$templateArray[$i++]."' value = '".$templateArray[$i]."'/> </td>";
+            $row3 .= "<td> <input type = 'text' class = 'quantity template' name = '".$templateArray[$i++]."' pattern = '[0-9]{1,2}' value = '".$templateArray[$i]."' required/> </td>";
         }
-        $output =   "<tr class = 'templateRow'>
+        $output =   "<tr class = 'templateRow'> <td>
                         <form action = '' method = 'POST'>
                             <table>
-                                <tr> <td colspan = '".(sizeof($templateArray)/2)."'> <input type = 'text' name = 'template' value = '$title'/> </td> </tr>
-                                <tr> $row2 </tr>
-                                <tr> $row3 </tr>
-                                <tr> <td colspan = '".(sizeof($templateArray)/2)."'> <button type = 'submit' value = '$templateNumber' name = 'submit' id = 'submit'> Save </button> </td> </tr>
+                                <tr> <td colspan = '".(sizeof($templateArray)/2)."'> <input type = 'text' name = 'template' value = '$title' pattern = '[A-Za-z0-9]{2,}' required/> </td> </tr>
+                                <tr class = 'itemNames'> $row2 </tr>
+                                <tr class = 'itemQuant'> $row3 </tr>
+                                <tr> <td colspan = '".(sizeof($templateArray)/2)."'>
+                                    <button type = 'submit' value = '$templateNumber' name = 'submit' id = 'submit'> Save </button>
+                                    <button type = 'submit' value = '$templateNumber' name = 'checkout' id = 'checkout'> Checkout </button>
+                                </td> </tr>
                             </table>
                         </form>
-                    </tr>";
+                    </td> </tr>";
         return $output;
     }
 
@@ -123,14 +124,24 @@
             $row2 .= "<td>".ucwords(str_replace("_"," ",$array[$i++]))."</td>";
             $row3 .= "<td>".$array[$i]."</td>";
         }
-        $output =   "<tr>
+        $output =   "<tr class = 'orderRow'> <td>
                         <table>
-                            <tr> <td colspan = '".(sizeof($array)/2)."'> $date </td> </tr>
-                            <tr> $row2 </tr>
-                            <tr> $row3 </tr>
+                            <tr> <td colspan = '".(sizeof($array)/2)."'> Purchase Date: $date </td> </tr>
+                            <tr class = 'itemNames'> $row2 </tr>
+                            <tr class = 'itemQuant'> $row3 </tr>
                         </table>
-                    </tr>";
+                    </td> </tr>";
         return $output;
 
+    }
+    
+    function templateToCart($user, $templateNumber){
+        $templateString = getTemplate($user, $templateNumber);
+        $tempArray = explode(" ", $templateString);
+        $templateString = implode(" ", array_slice($tempArray,1));
+        setcookie("cart_cookie", $templateString, time()+60*60*24, "/");
+        $_COOKIE["cart_cookie"] = $templateString;
+        // echo ($_COOKIE["cart_cookie"]);
+        header("location: Cart.php");
     }
 ?>

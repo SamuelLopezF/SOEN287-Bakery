@@ -49,7 +49,15 @@
                         <!-- <th><a href = "../order.html"> Order </a></th> -->
                         <th><a href = "../about_us.php"> About Us </a></th>
                         <th><a href = "../contact_us.php"> Contact Us </a></th>
-                        <th><a href = "../account.php"> Account </a></th>       
+                        <?php if(!empty($_SESSION['login_status']) && $_SESSION['login_status'] == 'logged in')
+							{
+								echo "<th><a href = '../profile.php'> My Profile </a></th>";
+								echo "<th><a href = '../logout.php'> Log Out</a></th>";
+							}else{
+								echo '<th><a href = "../account.php"> Log In </a></th>';
+								echo '<th><a href = "../register.php"> Sign up </a></th>';
+							}
+                        ?>       
                         <th class="cart" id='cartIconTopRight'><a href="../Cart.php"><span class="qty" id= 'cartIconTopRightQuantity'> <?php if(isSet($menu)) cartSize($menu); else echo("0");?> </span><img src="../Styles/Cart.png" alt="Cart.html" width="40px" height="40px"/></a></th>  
                     </tr>
                 </table>
@@ -117,7 +125,7 @@
                             <td>
                             <h4><?php echo $row['name']; ?></h4>
                             <a href="<?php echo $row['url']; ?>">
-                                <img src="../Styles/<?php echo $row['image']; ?>" alt="../<?php echo $row['image']; ?>" width="450px" height="350px" class="small_brush">
+                                <img src="../Styles/<?php echo $row['image']; ?>" alt="../<?php echo $row['image']; ?>" width="270px" height="210px" class="small_brush">
                             </a>
                             </td>
                             <?php

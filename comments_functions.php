@@ -10,7 +10,6 @@ date_default_timezone_set('America/Toronto');
             $sql = "INSERT INTO comments (username, date, comment) VALUES ('$username', '$date', '$comment')";
 
             $result = $connect->query($sql);
-            // echo "ho";
         }
         }
 

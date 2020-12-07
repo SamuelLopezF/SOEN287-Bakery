@@ -51,7 +51,15 @@
                         <!-- <th><a href = "order.html"> Order </a></th> -->
                         <th><a href = "about_us.php"> About Us </a></th>
                         <th class = "current_page"><a href = "contact_us.php" class = "current_page"> Contact Us </a></th>
-                        <th><a href = "account.php"> Account </a></th>
+                        <?php if(!empty($_SESSION['login_status']) && $_SESSION['login_status'] == 'logged in')
+                    {
+                        echo "<th><a href = 'profile.php'> My Profile </a></th>";
+                        echo "<th><a href = 'logout.php'> Log Out</a></th>";
+                    }else{
+                        echo '<th><a href = "account.php"> Log In </a></th>';
+                        echo '<th><a href = "register.php"> Sign up </a></th>';
+                    }
+                    ?>
                         
                         <th class="cart" id='cartIconTopRight'><a href="Cart.php"><span class="qty" id= 'cartIconTopRightQuantity'><?php if(isSet($menu)) cartSize($menu); else echo("0");?></span><img src="Styles/Cart.png" alt="Cart.html" width="40px" height="40px"/></a></th>
                         

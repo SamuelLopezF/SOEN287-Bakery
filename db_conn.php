@@ -2,7 +2,7 @@
 
 $dbServername = "localhost";
 $dbUsername = "root";
-$dbName = "bakery_db";
+$dbName = "soen_admin";
 
 $connect = mysqli_connect($dbServername, $dbUsername, "", $dbName);
 

@@ -1,6 +1,8 @@
 <?php require_once(__DIR__."/../../PHP/Cart_Cookies/Cart_Cookie.php"); ?>
 <?php require_once(__DIR__."/../../PHP/Cart_Cookies/Cookie_Hash_Functions.php"); ?>
 <?php require_once(__DIR__."/../../PHP/Cart_Cookies/Row_Creator.php"); ?>
+<?php require_once(__DIR__. "/../../PHP/Templates/Template_Functions.php"); ?>
+<?php session_start();?>
 <!--
     // File Description: Sends Contact Us Email
     // Last Edited By: Sobhan
@@ -44,7 +46,15 @@
                         <!-- <th><a href = "order.html"> Order </a></th> -->
                         <th><a href = "../../about_us.php"> About Us </a></th>
                         <th><a href = "../../contact_us.php"> Contact Us </a></th>
-                        <th><a href = "../../account.php"> Account </a></th>
+                        <?php if(!empty($_SESSION['login_status']) && $_SESSION['login_status'] == 'logged in')
+                    {
+                        echo "<th><a href = '../../profile.php'> My Profile </a></th>";
+                        echo "<th><a href = 'logout.php'> Log Out</a></th>";
+                    }else{
+                        echo '<th><a href = "../../account.php"> Log In </a></th>';
+                        echo '<th><a href = "../../register.php"> Sign up </a></th>';
+                    }
+                    ?>
                         
                         <th class="cart" id='cartIconTopRight'><a href="../../Cart.php"><span class="qty" id= 'cartIconTopRightQuantity'><?php if(isSet($menu)) cartSize($menu); else echo("0");?></span><img src="../../Styles/Cart.png" alt="Cart.html" width="40px" height="40px"/></a></th>
                         
@@ -155,6 +165,12 @@
                 echo 'Mailer Error: ' . $mail->ErrorInfo;
             } else {
                 echo '<p>Success! A confirmation email has been sent!</p>';
+                // if logged in add order (username, cookie)
+                if(!empty($_SESSION['login_status']) && $_SESSION['login_status'] == 'logged in')
+                {
+                    $user =$_SESSION['username_logged_in'];
+                    addOrder($user, $_COOKIE["cart_cookie"]);
+                }
                 unset($_COOKIE["cart_cookie"]);
                 setcookie("cart_cookie","", time() - 60*60, "/");
             }
