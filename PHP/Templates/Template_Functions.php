@@ -56,11 +56,11 @@
     }
 
     // Gets 5 most recent orders as an array of strings
-    function getRecentOrders($user){
+    function getRecentOrders($user, $num = 5){
         $fileName = "$user.txt";
         $file = file($fileName);
         $orders = array();
-        for($i = sizeof($file)-1 ; $i > sizeof($file)-6 ; $i--)
+        for($i = sizeof($file)-1 ; $i > sizeof($file)-1 -$num ; $i--)
             // if this is a valid line and starts with a date
             if(isset($file[$i]) && preg_match("/\d{2}-\d{2}-\d{4}/", explode(" ", $file[$i])[0]))
                 $orders[] = $file[$i];
