@@ -1,5 +1,6 @@
 <?php require_once("PHP/Cart_Cookies/Cart_Cookie.php"); ?>
 <?php require_once("PHP/Cart_Cookies/Cookie_Hash_Functions.php"); ?>
+<?php session_start() ?>
 <?php include "db_conn.php"; ?>
 <?php include "comments_functions.php"; ?>
 <!--

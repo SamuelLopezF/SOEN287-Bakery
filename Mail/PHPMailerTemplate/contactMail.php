@@ -1,3 +1,4 @@
+<?php session_start() ?>
 <?php require_once(__DIR__."/../../PHP/Cart_Cookies/Cart_Cookie.php"); ?>
 <?php require_once(__DIR__."/../../PHP/Cart_Cookies/Cookie_Hash_Functions.php"); ?>
 <!--
@@ -51,7 +52,7 @@
                         echo '<th><a href = "../../account.php"> Log In </a></th>';
                         echo '<th><a href = "../../register.php"> Sign up </a></th>';
                     }
-                        
+                        ?>
                         <th class="cart" id='cartIconTopRight'><a href="../../Cart.php"><span class="qty" id= 'cartIconTopRightQuantity'><?php if(isSet($menu)) cartSize($menu); else echo("0");?></span><img src="../../Styles/Cart.png" alt="Cart.html" width="40px" height="40px"/></a></th>
                         
                     </tr>
