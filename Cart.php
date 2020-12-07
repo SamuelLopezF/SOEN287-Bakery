@@ -88,7 +88,8 @@
       </form> <br/>
     </table>
 
-    <form>
+    <br/>
+    <form action = "checkout.php" method = "POST">
       <table style = "width: 75%;">
         <tr>
           <td style = "text-align: left;">
@@ -101,7 +102,7 @@
          </td>
         </tr>
       </table>
-    </form>
+    </form><br/>
 
     <footer>
       <table>

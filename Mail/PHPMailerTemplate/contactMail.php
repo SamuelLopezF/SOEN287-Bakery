@@ -16,7 +16,7 @@
 <!DOCTYPE html>
 <html lang = "en">
     <head>
-        <title> Contact Us | Dulceria China </title>
+        <title> Success | Dulceria China </title>
         <meta charset="UTF-8">
         <meta name = "viewport" content = "width=device-width, initial-scale=1.0"/>
 	    <meta name = "keywords" content = "dulceria china, restaurant, bakery, home, cantonese, baked goods, buns, contact us, contact information"/>

@@ -240,7 +240,7 @@ table.about_table {
 table {margin: auto;}
 
 /*=========== buttons ===========*/
-input, textarea {
+input, textarea, select {
     background-color: var(--beige);
     resize: none;
     border: none;

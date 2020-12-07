@@ -44,5 +44,28 @@
         }
     }
 
+    function createString($itemID, $itemCount){
+        // find price
+        $price = getPrice($itemID);
+        if(!isset($price))
+            return null;
+        // find total cost
+        $total = (float)$price*(int)$itemCount;
+        // format name
+        $name = ucwords(str_replace("_"," ",$itemID));
+        // print row
+        return "<p>$name : $itemCount : $$total<p>";
+    }
+
+    function calculatePrice($itemID, $itemCount){
+        // find price
+        $price = getPrice($itemID);
+        if(!isset($price))
+            return null;
+        // find total cost
+        $total = (float)$price*(int)$itemCount;
+        return (float) $total;
+    }
+
 
 ?>

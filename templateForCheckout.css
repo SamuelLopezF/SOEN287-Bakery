@@ -299,8 +299,9 @@ table tr td input.box1{
     width: 25px;
 }
 
-}
+
 table.aligning{
     text-align: right;
     color:white;
     font:sans-serif;
+}
