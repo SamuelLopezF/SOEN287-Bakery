@@ -67,9 +67,70 @@
         return $orders;
     }
 
-    // ToDo: templateStringToHTML
-    // ToDo: HTMLToTemplateString
-    // ToDo: orderToHTML
+    // takes a template string
+    function templateStringToHTML($templateString, $templateNumber){
+        $templateArray = explode(" ", $templateString);
+        $title = $templateArray[0];
+        $templateArray = array_slice($templateArray, 1);
+        $row2 = "";
+        $row3 = "";
+        for($i = 0 ; $i < sizeof($templateArray) ; $i++){
+            $row2 .= "<td>".ucwords(str_replace("_"," ",$templateArray[$i]))."</td>";
+            $row3 .= "<td> <input type = 'text' class = 'quantity template' name = '".$templateArray[$i++]."' value = '".$templateArray[$i]."'/> </td>";
+        }
+        $output =   "<tr class = 'templateRow'>
+                        <form action = '' method = 'POST'>
+                            <table>
+                                <tr> <td colspan = '".(sizeof($templateArray)/2)."'> <input type = 'text' name = 'template' value = '$title'/> </td> </tr>
+                                <tr> $row2 </tr>
+                                <tr> $row3 </tr>
+                                <tr> <td colspan = '".(sizeof($templateArray)/2)."'> <button type = 'submit' value = '$templateNumber' name = 'submit' id = 'submit'> Save </button> </td> </tr>
+                            </table>
+                        </form>
+                    </tr>";
+        return $output;
+    }
 
+    // HTMLToTemplateString
+    function HTMLToTemplateString(){
+        if(!isset($_POST["submit"]))
+            return;
+        $tempArray = array();
+        global $cart;
+        // push all cart items to a hash
+        for($i = 0; $i < sizeof($cart) - 1; $i = $i + 2)
+            $tempArray[$cart[$i]] = $cart[$i+1];
+        // if the post works, add the quantity of each item to the hash
+        foreach($tempArray as $key=>$value)
+            if(isset($_POST[$key]))
+                $tempArray[$key] = $_POST[$key];
 
+        $output = $_POST['template']." ";
+        foreach($tempArray as $key => $value)
+            $output .= "$key $value ";
+        $output = rtrim($output);
+        return $output;
+    }
+
+    // turns order into HTML
+    function orderToHTML($orderAsString){
+        $array = explode(" ", $orderAsString);
+        $date = $array[0];
+        $array = array_slice($array, 1);
+        $row2 = "";
+        $row3 = "";
+        for($i = 0 ; $i < sizeof($array) ; $i++){
+            $row2 .= "<td>".ucwords(str_replace("_"," ",$array[$i++]))."</td>";
+            $row3 .= "<td>".$array[$i]."</td>";
+        }
+        $output =   "<tr>
+                        <table>
+                            <tr> <td colspan = '".(sizeof($array)/2)."'> $date </td> </tr>
+                            <tr> $row2 </tr>
+                            <tr> $row3 </tr>
+                        </table>
+                    </tr>";
+        return $output;
+
+    }
 ?>
