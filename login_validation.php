@@ -1,4 +1,5 @@
 <?php
+// if log in successfull changes session status to logged in and redirects to the profile page
 if(login())
 {
     session_start();
@@ -13,7 +14,7 @@ if(login())
     $_SESSION['login_status'] = 'not logged in';
     header('Location: Account.php?error=invalidentry');
 }
-
+// connects to mysqli database with a root user and no password (set like this for symplicity, sharing compatibility)
 function connect_to_database()
 {
     $dbServername = "localhost";
@@ -31,7 +32,8 @@ function connect_to_database()
     }
     return $connect;
 }
-
+// Checks with a mysqli prepared staement if there is a corresponding username and password combination in the mysqli database. if so it changes the session status to logged in
+// Echo and printing is for debugging.
 function login()
 {
     $email = $_POST['email_login'];
