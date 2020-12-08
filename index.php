@@ -1,6 +1,8 @@
 <?php require_once("PHP/Cart_Cookies/Cart_Cookie.php"); ?>
 <?php require_once("PHP/Cart_Cookies/Cookie_Hash_Functions.php"); ?>
-<?php session_start() ?>
+<?php session_start();
+if(!empty($_SESSION["username_logged_in"])){$uid = $_SESSION["username_logged_in"];}
+?>
 <?php include "db_conn.php"; ?>
 <?php include "comments_functions.php"; ?>
 <!--
@@ -27,7 +29,6 @@
     <meta name = "description" content = "Dulceria China is home to some of the best baked Cantonese goods you'll find this side of town. Click to find out more!."/>
     <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
     <link href="Styles/template.css" rel="stylesheet">
-    <link href="Styles/comments.css" rel="stylesheet">
     <style type = "text/CSS">
         .homeBar h1 {font-size: 3vw;}
         .homeBar img {
@@ -119,31 +120,34 @@
         <br/>
         </div>
     </div>
-    <br/>
 
-    <table>
+
+    <table class="comment_table">
         <tr>
-            <td>
-                <div class="not_banner">
+            <td class="comment_input">
+                <div class="not_banner comment_input">
                     <br/>
                     <?php
                         echo "<form method='POST' action='".setComment($connect)."'>
-                        <p>Leave a comment</p>
-                        <input type='hidden' name='username' value='Anonymous'>
+                        <h4>Leave a comment</h4>
+                        <input type='hidden' name='username' value='".(!empty($uid)? $uid:"Anonymous")."' >
                         <input type='hidden' name='date' value='".date('Y-m-d H:i:s')."'>
-                        <textarea name='comment' cols='40' rows='5s'></textarea>
+                        <textarea name='comment' rows='5' class='comment_textarea'></textarea>
                         <br/><br/>
                         <button type='submit' name='submit'>Comment</button>
-                        </form>";
+                        </form><br/>";
                     ?>
                 </div>
             </td>
+        </tr>
+        <tr>
             <td>
-                <div style="overflow-y: auto; height:200px; width:800px;">
-                    <?php getComment($connect); ?>
-                </div>
+            <div style="overflow-y: auto; height: 900px; width: 800px;" class="small_brush">
+                <?php getComment($connect); ?>
+            </div>
             </td>
         </tr>
+        
     </table>
 
 <footer>
