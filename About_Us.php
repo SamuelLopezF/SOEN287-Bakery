@@ -1,15 +1,6 @@
 <?php require_once("PHP/Cart_Cookies/Cart_Cookie.php"); ?>
 <?php require_once("PHP/Cart_Cookies/Cookie_Hash_Functions.php"); ?>
 <?php session_start() ?>
-<!--
-	Last Edited By: Sobhan
-	Edit Date: 06-Dec-2020
-	Edit Number: 4
-	Edit Details:
-		CSS
-		Nav bar update
--->
-<!-- PHP -->
 <?php
     if(isset($_COOKIE["cart_cookie"]))
         $menu = cookieToHash($_COOKIE["cart_cookie"]);
