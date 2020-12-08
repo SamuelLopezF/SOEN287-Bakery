@@ -1,4 +1,4 @@
-i<?php
+<?php
 if(login())
 {
     session_start();
