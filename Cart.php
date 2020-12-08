@@ -80,14 +80,20 @@
           if(isset($_COOKIE["cart_cookie"])){
             $menu = cookieToHash($_COOKIE["cart_cookie"]);
             $empty = true;
-            $total = 0;
             foreach($menu as $key=>$value){
               $fail = false;
               if($menu[$key] > 0){
                 createRow($key,$value);
                 $empty = false;
-		$total = $total + $value;
               }
+            }
+            $total = 0;
+            foreach($menu as $item => $quantity){
+                if($quantity > 0){
+                    $string = createString($item, $quantity);
+                    $price = calculatePrice($item, $quantity);
+                    $total += $price;
+                }
             }
             if($empty){
               print"<tr><td colspan='5'> <h4> It looks like your cart is empty.</h4> </td></tr>";
