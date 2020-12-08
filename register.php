@@ -1,7 +1,8 @@
 <?php require_once("PHP/Cart_Cookies/Cart_Cookie.php"); ?>
 <?php require_once("PHP/Cart_Cookies/Cookie_Hash_Functions.php"); ?>
 <?php session_start();  
-
+if(isset($_COOKIE["cart_cookie"]))
+    $menu = cookieToHash($_COOKIE["cart_cookie"]);
 ?>
 <!DOCTYPE html>
 <html lang="en">
