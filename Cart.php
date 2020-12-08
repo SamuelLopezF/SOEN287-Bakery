@@ -2,16 +2,6 @@
 <?php require_once("PHP/Cart_Cookies/Cookie_Hash_Functions.php"); ?>
 <?php require_once("PHP\Templates\Template_Functions.php"); ?>
 <?php session_start();?>
-<!--
-	Last Edited By: Sobhan
-	Edit Date: 06-Dec-2020
-	Edit Number: 7
-	Edit Details:
-		Cart Appearance
-    Cart rows
-    Allow Editing of item numbers
--->
-<!-- PHP -->
 <?php
     incrementCart();
     decrementCart();
