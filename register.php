@@ -74,13 +74,13 @@
                     }
                     if($_GET['error'] == 'invalidpassword' )
                     {
-                        echo "<p> invalid password input <p?>";
+                        echo "<p> invalid password input , must contain one cap, one special character, one number, and be  minimum  8 charaters long <p?>";
                     }
                     if($_GET['error'] == 'invalidusername' )
                     {
-                        echo "<p> invalid username input, must contain one cap, one special character, one number, and be  minimum  8 charaters long <p?>";
+                        echo "<p> invalid username input<p?>";
                     }
-                    if($_GET['error'] == 'unsernamealreadyexists')
+                    if($_GET['error'] == 'usernamealreadyexists')
                     {
                         echo "<p> username already exists try again with a different username </p>";
                     }
