@@ -312,3 +312,27 @@ td.menuItem table.menu_button input {width: 8vw;}
     text-decoration: underline;
     color: blue;
 }
+
+/*=========== Comments ===========*/
+
+.comment_input{
+    /* border: solid; */
+    width: 100%;
+}
+
+.comment_output{
+    /* border: solid; */
+    height: auto;
+    width: 1000px;
+}
+
+.comment_box{
+    /* border: solid; */
+    height: auto;
+    /* width: 800px; */
+}
+
+.comment_textarea{
+    /* border: solid; */
+    width: 100%;
+}
