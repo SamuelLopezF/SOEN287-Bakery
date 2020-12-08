@@ -1,7 +1,9 @@
 <?php
 require_once("PHP\Templates\Template_Functions.php");
+// for debugging purposes 
     $_POST;
     print_r($_POST);
+// validates entries from the user to conform to regex expressions. Then checks if user already exists in database.
     if (!empty($_POST)) 
     {
         $email_input = $_POST['email_registration'];
@@ -23,7 +25,7 @@ require_once("PHP\Templates\Template_Functions.php");
     }else{
         echo 'did not pass';
     }
-
+// connects to mysqli database with a root user and no password. Set this way for simplicity and sharing compatibility.
 function connect_to_database()
 {
     $dbServername = "localhost";
@@ -42,7 +44,7 @@ function connect_to_database()
     }
     return $connect;
 }
-
+// checks if the email is already taken with a prepared mysqli statement. Printing is for debugging.
 function check_if_unique_and_create(){
 
     $email = $_POST['email_registration'];
@@ -83,6 +85,7 @@ function check_if_unique_and_create(){
        
     }
 }
+// creates a new user if the user is unique and passed regex expressions
 function create_user($email, $password, $username)
 {
     $connect = connect_to_database();
@@ -98,6 +101,7 @@ function create_user($email, $password, $username)
         mysqli_stmt_close($stmt);
         $_SESSION['registration_status'] = 'You sucessfully registered';
 }
+// regex functions to check if the inputs are valid
 function validate_password($password)
 {
     $regex_password = '/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/';
