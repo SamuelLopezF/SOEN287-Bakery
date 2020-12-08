@@ -89,7 +89,7 @@
               print"<tr><td colspan='5'> <h4> It looks like your cart is empty.</h4> </td></tr>";
             }
 	    else{
-		print "<tr><td colspan='4'></td><td> <h4> $total.00</h4> </td></tr>";
+		print "<tr><td colspan='4'></td><td> <h4> number_format($total, 2)$</h4> </td></tr>";
             }
           }
           if($fail){
