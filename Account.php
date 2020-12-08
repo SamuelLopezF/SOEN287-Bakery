@@ -2,22 +2,6 @@
 <?php require_once("PHP/Cart_Cookies/Cookie_Hash_Functions.php"); 
 session_start();
 ?>
-<!--
-	Last Edited By: Sobhan
-	Edit Date: 26-Nov-2020
-	Edit Number: 7
-	Edit Details:
-		Cart
-
-    Last Edited By: Sobhan
-	Edit Date: 03-Dec-2020
-	Edit Number: 8
-	Edit Details:
-		Added 'name' identifier to sign up inputs lines 156-176-196-216-228 (probably some other line i missed)
-        Created user_account database and when you sign up, it will insert the information
-
--->
-<!-- PHP -->
 <?php
     if(isset($_COOKIE["cart_cookie"]))
     {
