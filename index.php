@@ -106,7 +106,9 @@ if(!empty($_SESSION["username_logged_in"])){$uid = $_SESSION["username_logged_in
                 <script src="JavaScript/MonthSpecial1.js"></script>
             </h3>
             <p>
-                <script  src="JavaScript/MonthSpecial2.js"></script>
+                <script>
+		    document.write(text)
+		</script>
             </p>
         </div>
         <div>
