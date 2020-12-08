@@ -71,19 +71,19 @@ if(isset($_COOKIE["cart_cookie"]))
                 {
                     if($_GET['error'] == 'invalidemail')
                     {
-                        echo "<p> invalid email input <p?>";
+                        echo "<p> Invalid email input <p?>";
                     }
                     if($_GET['error'] == 'invalidpassword' )
                     {
-                        echo "<p> invalid password input , must contain one cap, one special character, one number, and be  minimum  8 charaters long <p?>";
+                        echo "<p> Invalid password input, must contain one cap, one special character, one number, and be  minimum  8 characters long <p?>";
                     }
                     if($_GET['error'] == 'invalidusername' )
                     {
-                        echo "<p> invalid username input<p?>";
+                        echo "<p> Invalid username input<p?>";
                     }
                     if($_GET['error'] == 'usernamealreadyexists')
                     {
-                        echo "<p> username already exists try again with a different username </p>";
+                        echo "<p> This username already exists try again with a different username </p>";
                     }
                 }
                
