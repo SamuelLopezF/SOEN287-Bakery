@@ -142,7 +142,7 @@ if(!empty($_SESSION["username_logged_in"])){$uid = $_SESSION["username_logged_in
         </tr>
         <tr>
             <td>
-            <div style="overflow-y: auto; height: 900px; width: 800px;" class="small_brush">
+            <div style="overflow-y: auto; height: 400px; width: 800px;" class="small_brush">
                 <?php getComment($connect); ?>
             </div>
             </td>
